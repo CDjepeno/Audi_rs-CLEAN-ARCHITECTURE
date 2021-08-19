@@ -1,0 +1,27 @@
+{
+  "name": "audi_rs-hexagonal",
+  "version": "1.0.0",
+  "description": "Projet MERN Hexagonal architecture",
+  "main": "server.ts",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CDjepeno/Audi_rs-HEXAGONAL-ARCHITECTURE.git"
+  },
+  "author": "Mr Djepeno Christopher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CDjepeno/Audi_rs-HEXAGONAL-ARCHITECTURE/issues"
+  },
+  "homepage": "https://github.com/CDjepeno/Audi_rs-HEXAGONAL-ARCHITECTURE#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@types/jest": "^27.0.1",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.3.5"
+  }
+}
