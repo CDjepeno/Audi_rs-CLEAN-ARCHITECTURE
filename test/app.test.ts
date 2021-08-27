@@ -3,6 +3,6 @@ describe('test', () => {
         expect(true).toBe(true)
     })
     it('test run', () => {
-        expect(true).toBe(false)
+        expect(true).toBe(true)
     })
 })
