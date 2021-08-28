@@ -6,8 +6,8 @@ jobs:
       - heroku/install
       - run:
           name: Build and push to Heroku
-            command: |
-              echo running test
+          command: |
+            echo running test
       - heroku/deploy-via-git
 orbs:
   heroku: circleci/heroku@1.2
