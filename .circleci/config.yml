@@ -26,11 +26,11 @@ workflows:
             branches:
               # This sample config runs this job on any branch matching the regex below, however, it's more likely you want to only run this job on master.
               only: main # Delete this line
-          - run:
-              name: Build and push to Heroku
-              command: |
-                set -x
-                sudo curl https://cli-assets.heroku.com/install.sh | sh
-                HEROKU_API_KEY=${HEROKU_KEY} heroku container:login
-                HEROKU_API_KEY=${HEROKU_KEY} heroku container:push -a audi-rs web
-                HEROKU_API_KEY=${HEROKU_KEY} heroku container:release -a audi-rs web
+            - run:
+                name: Build and push to Heroku
+                command: |
+                  set -x
+                  sudo curl https://cli-assets.heroku.com/install.sh | sh
+                  HEROKU_API_KEY=${HEROKU_KEY} heroku container:login
+                  HEROKU_API_KEY=${HEROKU_KEY} heroku container:push -a audi-rs web
+                  HEROKU_API_KEY=${HEROKU_KEY} heroku container:release -a audi-rs web
