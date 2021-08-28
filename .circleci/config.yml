@@ -6,11 +6,12 @@ jobs:
       - heroku/install
       - run:
           name: Build and push to Heroku
-            command:
+            command: |
+              set -x
               sudo curl https://cli-assets.heroku.com/install.sh | sh
               HEROKU_API_KEY=${HEROKU_KEY} heroku container:login
               HEROKU_API_KEY=${HEROKU_KEY} heroku container:push -a audi-rs web
-              HEROKU_API_KEY=${HEROKU_KEY} heroku container:release -
+              HEROKU_API_KEY=${HEROKU_KEY} heroku container:release -a audi-rs web
       - heroku/deploy-via-git
 orbs:
   heroku: circleci/heroku@1.2
