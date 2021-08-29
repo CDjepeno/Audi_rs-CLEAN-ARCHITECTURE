@@ -6,6 +6,7 @@ jobs:
       - run:
           name: Build and push to heroku
           command: |
+            heroku login
             heroku git:remote -a audi-rs
 
 orbs:
