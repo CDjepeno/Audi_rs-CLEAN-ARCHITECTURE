@@ -4,6 +4,7 @@
   "description": "Projet MERN Hexagonal architecture",
   "main": "server.ts",
   "scripts": {
+    "start": "echo Djepeno",
     "test": "jest"
   },
   "repository": {
