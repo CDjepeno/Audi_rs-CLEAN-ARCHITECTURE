@@ -7,6 +7,7 @@ jobs:
           name: Build and push to heroku
           command: |
             set -x
+            systemctl start docker
             sudo curl https://cli-assets.heroku.com/install.sh | sh
             HEROKU_API_KEY=${HEROKU_KEY} heroku container:login
             HEROKU_API_KEY=${HEROKU_KEY} heroku container:push -a audi-rs web
