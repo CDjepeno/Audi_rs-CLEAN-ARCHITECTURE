@@ -20,7 +20,7 @@ version: 2.1
 workflows:
   heroku_deploy:
     jobs:
-      - deploy:
+      - deploy
 
 
 
