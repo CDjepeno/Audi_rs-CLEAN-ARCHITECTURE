@@ -5,7 +5,7 @@ export interface CarRepository {
 
     addCar(car: Car): Promise<void>
 
-    deleteCar(car: Car): Promise<void>
+    deleteCar(id: string): Promise<void>
 
     getCar(id: string): Promise<Car>
 }

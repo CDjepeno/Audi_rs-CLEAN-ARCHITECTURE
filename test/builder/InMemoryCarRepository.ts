@@ -2,12 +2,13 @@ import {CarRepository} from "../../src/eco/domain/car/Repository/CarRepository";
 import {Car} from "../../src/eco/domain/car/Entities/Car";
 
 export class InMemoryCarRepository implements CarRepository{
-    cars: Car[] = []
-    constructor(cars: Car[]) {
-        this.cars = cars
+    private cars: Map<string,Car>
+
+    constructor() {
+        this.cars = new Map()
     }
 
-    async getAll(): Promise<Car[]> {
+    getAll(): Promise<Car[]> {
         return this.cars
     }
 
@@ -20,14 +21,16 @@ export class InMemoryCarRepository implements CarRepository{
         }
     }
 
-    async addCar(car: Car) {
-        const exists = await this.exists(car.id)
-        if(!exists) {
-            this.cars.push(car)
+    async addCar(car: Car): Promise<'SAVE DONE'> {
+        const exists = this.cars.get(car.id)
+        if(exists) {
+            this.cars.delete(car.id)
         }
+        this.cars.set(car.id, car)
+        return Promise.resolve('SAVE DONE')
     }
 
-    async deleteCar(car: Car) {
+    async deleteCar(id: string) {
         let index = this.cars.indexOf(car);
         this.cars.splice(index,1)
     }

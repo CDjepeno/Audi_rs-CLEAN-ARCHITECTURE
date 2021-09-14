@@ -1,9 +1,9 @@
-import {CarRepository} from "../../Repository/CarRepository";
+import {CarRepository} from "../../../domain/car/Repository/CarRepository";
 import {AddCarRequest} from "./AddCarRequest";
 import {AddCarPresenter} from "./AddCarPresenter";
 import {AddCarResponse} from "./AddCarResponse";
-import {Car} from "../../Entities/Car";
-import {Utils} from "../../../common/Utils";
+import {Car} from "../../../domain/car/Entities/Car";
+import {Utils} from "../../../domain/common/Utils";
 
 export class AddCar {
     constructor(private repository: CarRepository){}
@@ -18,7 +18,4 @@ export class AddCar {
         presenter.presentAddCar(response)
     }
 
-    validate(addCarRequest: AddCarRequest, presenter: AddCarPresenter) {
-        // const errors = new Map<>
-    }
 }
