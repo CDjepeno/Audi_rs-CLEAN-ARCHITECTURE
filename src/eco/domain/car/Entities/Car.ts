@@ -1,5 +1,5 @@
 import {Utils} from "../../common/Utils";
-import {BaseEntity} from "../../common/BaseEntity";
+import {User} from "./User";
 
 export class Car {
     id: string
@@ -9,7 +9,7 @@ export class Car {
         readonly km: number,
         readonly price: number,
         readonly image: string,
-        readonly owner: string) {
+        readonly owner: User){
         this.id = Utils.generateUniqueId()
         this.available = true
     }
