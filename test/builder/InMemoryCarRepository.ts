@@ -1,5 +1,7 @@
-import {CarRepository} from "../../src/eco/domain/car/Repository/CarRepository";
-import {Car} from "../../src/eco/domain/car/Entities/Car";
+import {CarRepository} from "../../src/eco/Core domain/online store/Repository/CarRepository";
+import {Car} from "../../src/eco/Core domain/online store/Entities/VO/Car";
+// @ts-ignore
+import {CarRepositoryBuilder} from "./CarRepositoryBuilder";
 
 export class InMemoryCarRepository implements CarRepository{
     private cars: Map<string,Car>
@@ -8,37 +10,36 @@ export class InMemoryCarRepository implements CarRepository{
         this.cars = new Map()
     }
 
-    getAll(): Promise<Car[]> {
-        return this.cars
+    async getCars(): Promise<Car[] | Promise<'Done'> > {
+        this.addCars(CarRepositoryBuilder.carsStub())
+        console.log(this.cars)
+        return Promise.resolve('Done')
     }
 
-    async getCar(id: string) {
-        let c: Car
-        for(c of this.cars) {
-            if(c.id === id) {
-                return c
-            }
+    private addCars(car: Car[]): void {
+        for (let c of car) {
+            this.cars.set(c.id, c)
         }
     }
 
-    async addCar(car: Car): Promise<'SAVE DONE'> {
+    async getCar(car: Car): Promise<Car> {
+        return Promise.resolve(this.cars.get(car.id))
+    }
+
+     addCar(car: Car): Promise<"Véhicule ajouté"> {
         const exists = this.cars.get(car.id)
         if(exists) {
             this.cars.delete(car.id)
         }
         this.cars.set(car.id, car)
-        return Promise.resolve('SAVE DONE')
+        return Promise.resolve('Véhicule ajouté')
     }
 
-    async deleteCar(id: string) {
-        let index = this.cars.indexOf(car);
-        this.cars.splice(index,1)
+    async deleteCar(car: Car): Promise<"Véhicule supprimé"> {
+        this.cars.delete(car.id)
+        return Promise.resolve("Véhicule supprimé")
     }
 
-    async exists (id: string): Promise<boolean> {
-        if(await this.getCar(id) === null) {
-            return false
-        }
-        return true
-    }
+
+
 }
