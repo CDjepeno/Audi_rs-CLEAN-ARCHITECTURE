@@ -1,5 +1,5 @@
 import {GetCarResponse} from "./GetCarResponse";
 
 export interface GetCarPresenter {
-    presentAddCar(response: GetCarResponse): void
+    presentGetCar(response: GetCarResponse): void
 }
