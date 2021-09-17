@@ -7,5 +7,5 @@ export interface CarRepository {
 
     deleteCar(car: Car): Promise<"Véhicule supprimé">
 
-    getCar(car: Car): Promise<Car>
+    getCar(id: string): Promise<Car>
 }

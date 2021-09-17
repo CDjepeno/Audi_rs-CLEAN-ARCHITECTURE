@@ -13,7 +13,7 @@ describe('InMemoryCarRepository Test', () => {
     it('Should get a car by id', () => {
         const car = CarRepositoryBuilder.carStub()
         const carStub = new InMemoryCarRepository()
-        const result = carStub.getCar(car)
+        const result = carStub.getCar(car.id)
         expect(result).resolves.toEqual(car)
     })
     it('Should get all cars', () => {

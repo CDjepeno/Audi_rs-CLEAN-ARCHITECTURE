@@ -1,4 +1,4 @@
-export class AddCarRequest {
+export class GetCarRequest {
     constructor(readonly id: string,
                 readonly name: string,
                 readonly km: number,

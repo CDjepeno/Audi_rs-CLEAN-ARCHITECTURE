@@ -1,5 +1,5 @@
 import {Car} from "../../../Entities/VO/Car";
 
-export class AddCarResponse {
+export class GetCarResponse {
     car?: Car
 }

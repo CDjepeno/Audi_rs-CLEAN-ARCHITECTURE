@@ -22,8 +22,8 @@ export class InMemoryCarRepository implements CarRepository{
         }
     }
 
-    async getCar(car: Car): Promise<Car> {
-        return Promise.resolve(this.cars.get(car.id))
+    async getCar(id: string): Promise<Car> {
+        return Promise.resolve(this.cars.get(id))
     }
 
      addCar(car: Car): Promise<"Véhicule ajouté"> {
