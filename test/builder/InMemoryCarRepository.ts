@@ -4,42 +4,42 @@ import {Car} from "../../src/eco/Core domain/online store/Entities/VO/Car";
 import {CarRepositoryBuilder} from "./CarRepositoryBuilder";
 
 export class InMemoryCarRepository implements CarRepository{
-    private cars: Map<string,Car>
+    private cars: Car[] = []
 
-    constructor() {
-        this.cars = new Map()
+    async getCars():Promise<Car[]> {
+        const result = CarRepositoryBuilder.carsStub()
+        return Promise.resolve(result)
     }
 
-    async getCars(): Promise<Car[] | Promise<'Done'> > {
-        this.addCars(CarRepositoryBuilder.carsStub())
-        console.log(this.cars)
-        return Promise.resolve('Done')
-    }
-
-    private addCars(car: Car[]): void {
-        for (let c of car) {
-            this.cars.set(c.id, c)
+    async getCar(car: Car): Promise<Car> {
+        if(this.exist(car)) {
+            return Promise.resolve(car)
         }
     }
 
-    async getCar(id: string): Promise<Car> {
-        return Promise.resolve(this.cars.get(id))
-    }
-
-     addCar(car: Car): Promise<"Véhicule ajouté"> {
-        const exists = this.cars.get(car.id)
-        if(exists) {
-            this.cars.delete(car.id)
+     async addCar(car: Car): Promise<"Véhicule ajouté"> {
+        let index = this.cars.indexOf(car);
+        if(this.cars.includes(car)) {
+            this.cars.splice(index, 1);
         }
-        this.cars.set(car.id, car)
+        this.cars.push(car)
         return Promise.resolve('Véhicule ajouté')
     }
 
     async deleteCar(car: Car): Promise<"Véhicule supprimé"> {
-        this.cars.delete(car.id)
-        return Promise.resolve("Véhicule supprimé")
+        if(!this.exist(car)) {
+            return Promise.resolve("Véhicule supprimé")
+        }
     }
 
-
+    exist(car: Car): boolean {
+        this.cars.push(car)
+        for (let c of this.cars) {
+            if(this.cars.includes(c)) {
+                return true
+            }
+        }
+        return false
+    }
 
 }
