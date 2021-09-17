@@ -11,7 +11,7 @@ export class GetCar {
     async execute(request: Car, presenter: GetCarPresenter) {
         const response = new GetCarResponse();
         response.car = await this.repository.getCar(request)
-        presenter.presentAddCar(response)
+        presenter.presentGetCar(response)
     }
 
 }

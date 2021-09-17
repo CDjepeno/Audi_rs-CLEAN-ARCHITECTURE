@@ -9,7 +9,7 @@ export class GetCars {
     async execute(presenter: GetCarsPresenter) {
         const response = new GetCarsResponse();
         response.cars = await this.repository.getCars()
-        presenter.presentAddCar(response)
+        presenter.presentGetCars(response)
     }
 
 }
