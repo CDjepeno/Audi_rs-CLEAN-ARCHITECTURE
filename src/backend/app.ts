@@ -11,4 +11,4 @@ app.get('/', (req , res) => {
     res.send('hello world')
 })
 
-app.listen(config.server, () => console.log(`Serveur running ${config.server.port}`))
+app.listen(config.server.port, () => console.log(`Serveur running ${config.server.port}`))
