@@ -1,10 +1,8 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import config  from './config/config'
 
 const app: express.Application = express()
 
-// app.use(bodyParser.urlencoded({extend: false}))
 app.use(express.json())
 
 app.get('/', (req , res) => {
