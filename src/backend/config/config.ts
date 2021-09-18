@@ -10,8 +10,17 @@ const SERVER = {
     port: SERVER_PORT
 }
 
+const DB = {
+    uri: process.env.MONGO_URI,
+    options: {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }
+}
+
 const config = {
-    server: SERVER
+    server: SERVER,
+    DB
 }
 
 export default config;
