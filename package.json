@@ -4,7 +4,7 @@
   "description": "Projet MERN Hexagonal architecture",
   "main": "server.ts",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node dist/backend/app.js",
     "dev": "nodemon src/backend/app.ts",
     "build": "tsc -p .",
     "test": "jest"
