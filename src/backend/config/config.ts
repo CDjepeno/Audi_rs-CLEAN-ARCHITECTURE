@@ -15,7 +15,8 @@ const DB = {
     options: {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-    }
+    },
+    name: process.env.DB_NAME
 }
 
 const config = {

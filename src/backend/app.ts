@@ -1,12 +1,18 @@
 import express from 'express'
 import config  from './config/config'
+import * as mongoose from "mongoose";
 
-const app: express.Application = express()
+(async () => {
+    await mongoose.connect(config.DB.uri)
 
-app.use(express.json())
+    const app: express.Application = express()
 
-app.get('/', (req , res) => {
-    res.send('hello world')
-})
+    app.use(express.json())
 
-app.listen(config.server.port, () => console.log(`Serveur running ${config.server.port}`))
+
+    app.get('/', (req , res) => {
+        res.send('hello world')
+    })
+
+    app.listen(config.server.port, () => console.log(`Serveur running ${config.server.port}`))
+})()
