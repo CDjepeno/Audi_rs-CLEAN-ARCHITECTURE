@@ -1,9 +1,14 @@
 import express from 'express'
+import bodyParser from 'body-parser'
+import config  from './config/config'
 
-const app = express()
+const app: express.Application = express()
 
-app.get('/', (req, res) => {
-    res.send('hello')
+// app.use(bodyParser.urlencoded({extend: false}))
+app.use(bodyParser.json())
+
+app.get('/', (req , res) => {
+    res.send('hello world')
 })
 
-app.listen(5000, () => console.log('Serveur running'))
+app.listen(config.server, () => console.log(`Serveur running ${config.server.port}`))
