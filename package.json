@@ -2,7 +2,7 @@
   "name": "audi_rs-hexagonal",
   "version": "1.0.0",
   "description": "Projet MERN Hexagonal architecture",
-  "main": "server.ts",
+  "main": "app.js",
   "scripts": {
     "start": "node dist/backend/app.js",
     "dev": "nodemon src/backend/app.ts",

@@ -21,15 +21,6 @@ workflows:
       - node/test
       - heroku/deploy-via-git:
           force: true # this parameter instructs the push to use a force flag when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
-          steps:
-            - run:
-                name: install npm dependencies
-                commmand: |
-                  npm install --save
-            - run:
-                name: run server
-                commmand: |
-                  npm run start
           requires:
             - node/test # only run deploy-via-git job if the build job has completed
           filters:
