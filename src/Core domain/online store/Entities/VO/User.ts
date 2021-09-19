@@ -1,7 +1,15 @@
 import {Utils} from "../../../common/Utils";
 
-export class User {
-    id: string
+export interface IUser {
+    id?: string,
+    firstName: string,
+    lastName: string,
+    address: string,
+    password: string
+}
+
+export class User implements IUser {
+    id?: string
     constructor(
         readonly firstName: string,
         readonly lastName: string,

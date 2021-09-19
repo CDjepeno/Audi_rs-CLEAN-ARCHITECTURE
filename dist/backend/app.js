@@ -16,13 +16,13 @@ const express_1 = __importDefault(require("express"));
 const config_1 = __importDefault(require("./config/config"));
 const mongoose_1 = __importDefault(require("mongoose"));
 (() => __awaiter(void 0, void 0, void 0, function* () {
-    yield mongoose_1.default.connect(config_1.default.DB.uri, () => {
-        console.log('connected to database');
-    });
     const app = express_1.default();
-    app.use(express_1.default.json());
+    app.listen(config_1.default.server.port, () => console.log(`Serveur running ${config_1.default.server.port}`));
     app.get('/', (req, res) => {
         res.send('hello world');
     });
-    app.listen(config_1.default.server.port, () => console.log(`Serveur running ${config_1.default.server.port}`));
+    yield mongoose_1.default.connect(config_1.default.DB.uri, () => {
+        console.log('connected to database');
+    });
+    app.use(express_1.default.json());
 }))();
