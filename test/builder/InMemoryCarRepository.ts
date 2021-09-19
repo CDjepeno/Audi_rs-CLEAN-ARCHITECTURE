@@ -1,5 +1,5 @@
-import {CarRepository} from "../../src/eco/Core domain/online store/Repository/CarRepository";
-import {Car} from "../../src/eco/Core domain/online store/Entities/VO/Car";
+import {CarRepository} from "../../src/Core domain/online store/Repository/CarRepository";
+import {Car} from "../../src/Core domain/online store/Entities/VO/Car";
 // @ts-ignore
 import {CarRepositoryBuilder} from "./CarRepositoryBuilder";
 

@@ -1,7 +1,7 @@
-import {Car} from "../../src/eco/Core domain/online store/Entities/VO/Car";
+import {Car} from "../../src/Core domain/online store/Entities/VO/Car";
 // @ts-ignore
 import {UserRepositoryBuilder} from "./UserRepositoryBuilder";
-import {Utils} from "../../src/eco/Core domain/common/Utils";
+import {Utils} from "../../src/Core domain/common/Utils";
 
 export class CarRepositoryBuilder {
 

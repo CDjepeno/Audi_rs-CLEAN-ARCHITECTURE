@@ -1,4 +1,4 @@
-import {Utils} from "../../src/eco/Core domain/common/Utils";
+import {Utils} from "../../src/Core domain/common/Utils";
 
 describe('Utils class', () => {
     it('should be return random string', () => {

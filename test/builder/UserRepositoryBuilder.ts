@@ -1,5 +1,5 @@
-import { Utils } from "../../src/eco/Core domain/common/Utils";
-import {User} from "../../src/eco/Core domain/online store/Entities/VO/User";
+import { Utils } from "../../src/Core domain/common/Utils";
+import {User} from "../../src/Core domain/online store/Entities/VO/User";
 
 export class UserRepositoryBuilder {
 
