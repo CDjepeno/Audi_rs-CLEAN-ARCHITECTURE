@@ -1,9 +1,11 @@
 import express from 'express'
 import config  from './config/config'
-import * as mongoose from "mongoose";
+import mongoose from "mongoose";
 
 (async () => {
-    await mongoose.connect(config.DB.uri)
+    await mongoose.connect(config.DB.uri,() => {
+        console.log('connected to database')
+    })
 
     const app: express.Application = express()
 

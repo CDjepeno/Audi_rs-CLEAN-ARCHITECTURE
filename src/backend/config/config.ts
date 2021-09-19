@@ -11,7 +11,7 @@ const SERVER = {
 }
 
 const DB = {
-    uri: process.env.MONGO_URI,
+    uri: process.env.MONGO_URI as string,
     options: {
         useNewUrlParser: true,
         useUnifiedTopology: true,
