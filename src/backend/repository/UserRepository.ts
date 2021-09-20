@@ -1,3 +1,3 @@
-export class UserRepository implements  {
+export class UserRepository implements UserRepository  {
 
 }

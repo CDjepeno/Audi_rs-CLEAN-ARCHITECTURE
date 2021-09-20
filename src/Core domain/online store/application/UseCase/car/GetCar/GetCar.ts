@@ -1,8 +1,8 @@
-import {CarRepository} from "../../../Repository/CarRepository";
+import {CarRepository} from "../../../../Repository/CarRepository";
 import {GetCarRequest} from "./GetCarRequest";
 import {GetCarPresenter} from "./GetCarPresenter";
 import {GetCarResponse} from "./GetCarResponse";
-import {Car} from "../../../Entities/VO/Car";
+import {Car} from "../../../../Entities/VO/Car";
 
 
 export class GetCar {

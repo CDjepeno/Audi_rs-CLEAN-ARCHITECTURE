@@ -1,11 +1,11 @@
-import {Car} from "../../src/Core domain/online store/Entities/VO/Car";
+import {ICar} from "../../src/Core domain/online store/Entities/VO/Car";
 // @ts-ignore
 import {UserRepositoryBuilder} from "./UserRepositoryBuilder";
 import {Utils} from "../../src/Core domain/common/Utils";
 
 export class CarRepositoryBuilder {
 
-    static carStub(): Car{
+    static carStub(): ICar{
         const ownerCar= UserRepositoryBuilder.UserStub()
         return {
             id: Utils.generateUniqueId(),
@@ -18,9 +18,10 @@ export class CarRepositoryBuilder {
         }
     }
 
-    static carsStub(): Car[] {
+    static carsStub(): ICar[] {
         const ownerCar1= UserRepositoryBuilder.UserStub()
         const ownerCar2= UserRepositoryBuilder.UserStub()
+        const ownerCar3= UserRepositoryBuilder.UserStub()
         return [
             {
                 id: Utils.generateUniqueId(),
@@ -38,6 +39,15 @@ export class CarRepositoryBuilder {
                 price: 80000,
                 image: 'Audi_rs7.png',
                 owner: ownerCar2,
+                available: true
+            },
+            {
+                id: Utils.generateUniqueId(),
+                name:'Audi_RSQ3',
+                km: 1150,
+                price: 80000,
+                image: 'Audi_rsq3.png',
+                owner: ownerCar3,
                 available: true
             }
         ]

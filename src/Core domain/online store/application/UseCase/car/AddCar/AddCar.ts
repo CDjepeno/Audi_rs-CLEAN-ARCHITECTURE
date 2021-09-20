@@ -1,10 +1,9 @@
-import {CarRepository} from "../../../Repository/CarRepository";
+import {CarRepository} from "../../../../Repository/CarRepository";
 import {AddCarRequest} from "./AddCarRequest";
 import {AddCarPresenter} from "./AddCarPresenter";
 import {AddCarResponse} from "./AddCarResponse";
-import {Car} from "../../../Entities/VO/Car";
-import {Utils} from "../../../../common/Utils";
-import {User} from "../../../Entities/VO/User";
+import {Car} from "../../../../Entities/VO/Car";
+import {User} from "../../../../Entities/VO/User";
 
 export class AddCar {
     constructor(private repository: CarRepository){}

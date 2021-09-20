@@ -1,15 +1,25 @@
 import {Utils} from "../../../common/Utils";
-import {User} from "./User";
+import {IUser, User} from "./User";
 
-export class Car {
-    id: string
+export interface ICar {
+    id?: string,
+    name: string,
+    km: number,
+    price: number,
+    image: string,
+    owner: IUser,
+    available: boolean
+}
+
+export class Car implements ICar{
+    id?: string
     available: boolean
     constructor(
         readonly name: string,
         readonly km: number,
         readonly price: number,
         readonly image: string,
-        readonly owner: User)
+        readonly owner: IUser)
     {
         this.id = Utils.generateUniqueId()
         this.available = true

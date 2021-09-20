@@ -1,12 +1,10 @@
-import {User} from "../../../Entities/VO/User";
-
-export class AddCarRequest {
+export class DeleteCarsRequest {
     constructor(readonly id: string,
                 readonly name: string,
                 readonly km: number,
                 readonly price: number,
                 readonly image: string,
-                readonly owner: User,
+                readonly owner: string,
                 readonly available: boolean
                 ){}
 }

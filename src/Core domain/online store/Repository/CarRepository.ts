@@ -1,11 +1,11 @@
-import {Car} from "../Entities/VO/Car";
+import {ICar} from "../Entities/VO/Car";
 
 export interface CarRepository {
-    getCars(): Promise<Car[]>
+    getCars(): Promise<ICar[]>
 
-    addCar(car: Car): Promise<"Véhicule ajouté">
+    addCar(car: ICar): Promise<"Véhicule ajouté">
 
-    deleteCar(car: Car): Promise<"Véhicule supprimé">
+    deleteCar(id: string): Promise<"Véhicule supprimé">
 
-    getCar(car: Car): Promise<Car>
+    getCar(id: string): Promise<ICar>
 }

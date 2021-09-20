@@ -1,4 +1,4 @@
-import {CarRepository} from "../../../Repository/CarRepository";
+import {CarRepository} from "../../../../Repository/CarRepository";
 import {GetCarsPresenter} from "./GetCarsPresenter";
 import {GetCarsResponse} from "./GetCarsResponse";
 
