@@ -6,7 +6,7 @@ import {Utils} from "../../src/Core domain/common/Utils";
 export class CarRepositoryBuilder {
 
     static carStub(): ICar{
-        const ownerCar= UserRepositoryBuilder.UserStub()
+        const ownerCar= UserRepositoryBuilder.userStub()
         return {
             id: Utils.generateUniqueId(),
             name:'Audi_rs6',
@@ -19,9 +19,9 @@ export class CarRepositoryBuilder {
     }
 
     static carsStub(): ICar[] {
-        const ownerCar1= UserRepositoryBuilder.UserStub()
-        const ownerCar2= UserRepositoryBuilder.UserStub()
-        const ownerCar3= UserRepositoryBuilder.UserStub()
+        const ownerCar1= UserRepositoryBuilder.userStub()
+        const ownerCar2= UserRepositoryBuilder.userStub()
+        const ownerCar3= UserRepositoryBuilder.userStub()
         return [
             {
                 id: Utils.generateUniqueId(),

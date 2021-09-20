@@ -24,7 +24,7 @@ describe('InMemoryUserRepository Test', () => {
         const result = userStub.getUsers()
         expect(result).resolves.toEqual(users)
     })
-    it.only('Should delete car ', () => {
+    it('Should delete car ', () => {
         const user = UserRepositoryBuilder.userStub()
         const userStub = new InMemoryUserRepository()
         userStub.addUser(user)
