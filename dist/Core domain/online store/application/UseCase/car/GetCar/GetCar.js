@@ -9,17 +9,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DeleteCar = void 0;
-class DeleteCar {
+exports.GetCar = void 0;
+const GetCarResponse_1 = require("./GetCarResponse");
+class GetCar {
     constructor(repository) {
         this.repository = repository;
     }
     execute(request, presenter) {
         return __awaiter(this, void 0, void 0, function* () {
-            let response;
-            response = yield this.repository.deleteCar(request);
-            yield presenter.presentDeleteCar(response);
+            const response = new GetCarResponse_1.GetCarResponse();
+            response.car = yield this.repository.getCar(request.id);
+            presenter.presentGetCar(response);
         });
     }
 }
-exports.DeleteCar = DeleteCar;
+exports.GetCar = GetCar;

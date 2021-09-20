@@ -8,7 +8,7 @@ export class DeleteCar {
 
     async execute(request: ICar, presenter: DeleteCarPresenter) {
         let response: "Véhicule supprimé";
-        response = await this.repository.deleteCar(request)
+        response = await this.repository.deleteCar(request.id)
         await presenter.presentDeleteCar(response)
     }
 

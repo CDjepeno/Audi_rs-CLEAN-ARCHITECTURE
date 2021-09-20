@@ -9,23 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AddCar = void 0;
-const AddCarResponse_1 = require("./AddCarResponse");
-const Car_1 = require("../../../Entities/VO/Car");
-const User_1 = require("../../../Entities/VO/User");
-class AddCar {
+exports.AddUser = void 0;
+const AddUserResponse_1 = require("./AddUserResponse");
+const User_1 = require("../../../../Entities/VO/User");
+class AddUser {
     constructor(repository) {
         this.repository = repository;
     }
     execute(request, presenter) {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = new AddCarResponse_1.AddCarResponse();
+            const response = new AddUserResponse_1.AddUserResponse();
             const user = new User_1.User(request.owner.firstName, request.owner.lastName, request.owner.address, request.owner.email, request.owner.password);
-            const car = new Car_1.Car(request.name, request.km, request.price, request.image, user);
-            yield this.repository.addCar(car);
-            response.car = car;
+            yield this.repository.addUser(user);
+            response.user = user;
             presenter.presentAddCar(response);
         });
     }
 }
-exports.AddCar = AddCar;
+exports.AddUser = AddUser;
