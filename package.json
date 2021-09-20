@@ -1,6 +1,9 @@
 {
   "name": "audi_rs-hexagonal",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "description": "Projet MERN Hexagonal architecture",
   "main": "app.js",
   "scripts": {
