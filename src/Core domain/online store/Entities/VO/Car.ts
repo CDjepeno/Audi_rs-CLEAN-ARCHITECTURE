@@ -1,5 +1,5 @@
 import {Utils} from "../../../common/Utils";
-import {IUser, User} from "./User";
+import {IUser} from "./User";
 
 export interface ICar {
     id?: string,

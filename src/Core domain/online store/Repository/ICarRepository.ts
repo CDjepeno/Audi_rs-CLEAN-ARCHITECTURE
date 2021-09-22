@@ -1,6 +1,6 @@
 import {ICar} from "../Entities/VO/Car";
 
-export interface CarRepository {
+export interface ICarRepository {
     getCars(): Promise<ICar[]>
 
     addCar(car: ICar): Promise<"Véhicule ajouté">

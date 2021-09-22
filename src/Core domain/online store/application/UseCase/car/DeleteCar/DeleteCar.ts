@@ -1,6 +1,6 @@
-import {CarRepository} from "../../../../Repository/CarRepository";
+import {CarRepository} from "../../../../Repository/ICarRepository";
 import {DeleteCarPresenter} from "./DeleteCarPresenter";
-import {Car, ICar} from "../../../../Entities/VO/Car";
+import {ICar} from "../../../../Entities/VO/Car";
 
 
 export class DeleteCar {

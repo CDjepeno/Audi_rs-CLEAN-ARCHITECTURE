@@ -1,6 +1,6 @@
 // @ts-ignore
 import {CarRepositoryBuilder} from "./CarRepositoryBuilder";
-import {UserRepository} from "../../src/backend/repository/UserRepository";
+import {UserRepository} from "../../src/backend/controllers/UserController";
 import {IUser} from "../../src/Core domain/online store/Entities/VO/User";
 import {UserRepositoryBuilder} from "./UserRepositoryBuilder";
 

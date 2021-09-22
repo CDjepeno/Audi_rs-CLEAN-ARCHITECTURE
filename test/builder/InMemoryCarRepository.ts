@@ -1,4 +1,4 @@
-import {CarRepository} from "../../src/Core domain/online store/Repository/CarRepository";
+import {CarRepository} from "../../src/Core domain/online store/Repository/ICarRepository";
 import {Car, ICar} from "../../src/Core domain/online store/Entities/VO/Car";
 // @ts-ignore
 import {CarRepositoryBuilder} from "./CarRepositoryBuilder";

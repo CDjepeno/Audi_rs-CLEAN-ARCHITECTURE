@@ -1,13 +1,11 @@
-import {IUser} from "../../../../Entities/VO/User";
 
 export class AddUserRequest {
     constructor(readonly id: string,
-                readonly name: string,
-                readonly km: number,
-                readonly price: number,
-                readonly image: string,
-                readonly owner: IUser,
-                readonly available: boolean
+                readonly firstName: string,
+                readonly lastName: string,
+                readonly email: string,
+                readonly address: string,
+                readonly password: string,
                 ){}
 }
 
