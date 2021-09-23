@@ -11,7 +11,7 @@
     "start": "node dist/backend/server.js",
     "dev": "nodemon src/backend/server.ts",
     "build": "tsc -p .",
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "jest": {
     "verbose": true,
