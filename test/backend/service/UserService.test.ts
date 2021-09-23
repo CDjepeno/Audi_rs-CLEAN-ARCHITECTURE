@@ -21,8 +21,4 @@ describe('Test UserService module', () => {
 
         expect(result).toBe('Utilisateur ajouté')
     })
-    afterAll(async () => {
-        await mongoClient.connection.close()
-    })
-
 })
