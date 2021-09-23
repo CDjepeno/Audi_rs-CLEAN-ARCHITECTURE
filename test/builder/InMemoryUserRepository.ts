@@ -1,10 +1,10 @@
 // @ts-ignore
 import {CarRepositoryBuilder} from "./CarRepositoryBuilder";
-import {UserRepository} from "../../src/backend/controllers/UserController";
 import {IUser} from "../../src/Core domain/online store/Entities/VO/User";
 import {UserRepositoryBuilder} from "./UserRepositoryBuilder";
+import {IUserRepository} from "../../src/Core domain/online store/Repository/IUserRepository";
 
-export class InMemoryUserRepository implements UserRepository{
+export class InMemoryUserRepository implements IUserRepository{
     private users: Map<string, IUser>
 
     constructor() {

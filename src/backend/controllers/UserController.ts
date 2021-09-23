@@ -1,7 +1,4 @@
-import {IUserRepository} from "../../Core domain/online store/Repository/IUserRepository";
-import {IUser, User} from "../../Core domain/online store/Entities/VO/User";
-import userModel from "../models/userModel";
-import {AddUser} from "../../Core domain/online store/application/UseCase/user/AddUser/AddUser";
+import {IUser} from "../../Core domain/online store/Entities/VO/User";
 import {UserService} from "../services/userService";
 import { Request, Response } from "express";
 
@@ -17,7 +14,6 @@ export const createUser = async (req: Request, res: Response) => {
         }
 
 }
-    export default createUser
     // deleteUser(id: string): Promise<"Utilisateur supprimé"> {
     //     return
     // }

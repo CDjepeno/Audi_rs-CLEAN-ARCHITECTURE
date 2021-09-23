@@ -19,6 +19,15 @@ const DB = {
     name: process.env.DB_NAME
 }
 
+const DBTEST = {
+    uri: process.env.MONGO_URI as string,
+    options: {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    },
+    name: process.env.DB_NAME_TEST
+}
+
 const config = {
     server: SERVER,
     DB

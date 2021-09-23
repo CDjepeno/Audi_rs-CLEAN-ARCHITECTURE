@@ -1,9 +1,9 @@
-import {CarRepository} from "../../src/Core domain/online store/Repository/ICarRepository";
-import {Car, ICar} from "../../src/Core domain/online store/Entities/VO/Car";
+import {ICarRepository} from "../../src/Core domain/online store/Repository/ICarRepository";
+import {ICar} from "../../src/Core domain/online store/Entities/VO/Car";
 // @ts-ignore
 import {CarRepositoryBuilder} from "./CarRepositoryBuilder";
 
-export class InMemoryCarRepository implements CarRepository{
+export class InMemoryCarRepository implements ICarRepository{
     private cars: Map<string, ICar>
 
     constructor() {
@@ -35,8 +35,6 @@ export class InMemoryCarRepository implements CarRepository{
     }
 
     async deleteCar(id: string): Promise<"Véhicule supprimé"> {
-        // if(!this.exist(car)) {
             return Promise.resolve("Véhicule supprimé")
-        // }
     }
 }
