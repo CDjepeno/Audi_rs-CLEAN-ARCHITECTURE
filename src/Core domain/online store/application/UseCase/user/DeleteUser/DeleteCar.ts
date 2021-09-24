@@ -1,10 +1,10 @@
-import {CarRepository} from "../../../../Repository/ICarRepository";
+import {ICarRepository} from "../../../../Repository/ICarRepository";
 import {DeleteCarPresenter} from "./DeleteCarPresenter";
-import {Car, ICar} from "../../../../Entities/VO/Car";
+import {ICar} from "../../../../Entities/VO/Car";
 
 
 export class DeleteCar {
-    constructor(private repository: CarRepository){}
+    constructor(private repository: ICarRepository){}
 
     async execute(request: ICar, presenter: DeleteCarPresenter) {
         let response: "Véhicule supprimé";

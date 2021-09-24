@@ -9,21 +9,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AddUser = void 0;
-const AddUserResponse_1 = require("./AddUserResponse");
-const User_1 = require("../../../../Entities/VO/User");
-class AddUser {
-    constructor(repository) {
-        this.repository = repository;
+exports.createUser = void 0;
+const userService_1 = require("../services/userService");
+const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const user = req.body;
+        const userService = new userService_1.UserService();
+        yield userService.addUser(user);
+        res.json('Utilisateur ajouter');
     }
-    execute(request, presenter) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const response = new AddUserResponse_1.AddUserResponse();
-            const user = new User_1.User(request.firstName, request.lastName, request.address, request.email, request.password);
-            yield this.repository.addUser(user);
-            response.user = user;
-            presenter.presentAddCar(response);
-        });
+    catch (e) {
+        throw new Error(e);
     }
-}
-exports.AddUser = AddUser;
+});
+exports.createUser = createUser;
+// deleteUser(id: string): Promise<"Utilisateur supprimé"> {
+//     return
+// }
+// getUser(id: string): Promise<IUser> {
+//     return
+// }
+// getUsers(): Promise<IUser[]> {
+//     return
+// }

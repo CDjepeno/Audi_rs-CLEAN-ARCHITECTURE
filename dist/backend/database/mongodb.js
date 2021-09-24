@@ -8,22 +8,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AddUser = void 0;
-const AddUserResponse_1 = require("./AddUserResponse");
-const User_1 = require("../../../../Entities/VO/User");
-class AddUser {
-    constructor(repository) {
-        this.repository = repository;
-    }
-    execute(request, presenter) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const response = new AddUserResponse_1.AddUserResponse();
-            const user = new User_1.User(request.firstName, request.lastName, request.address, request.email, request.password);
-            yield this.repository.addUser(user);
-            response.user = user;
-            presenter.presentAddCar(response);
-        });
-    }
+exports.connectDb = void 0;
+const mongoose_1 = __importDefault(require("mongoose"));
+function connectDb(mongoUri) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return yield mongoose_1.default.connect(mongoUri).then(() => console.log('connected to database'));
+    });
 }
-exports.AddUser = AddUser;
+exports.connectDb = connectDb;
