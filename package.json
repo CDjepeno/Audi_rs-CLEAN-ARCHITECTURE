@@ -9,9 +9,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node dist/backend/server.js",
-    "dev": "nodemon src/backend/server.ts",
+    "dev": "env-cmd -f ./src/backend/config/.dev.env nodemon src/backend/server.ts",
     "build": "tsc -p .",
-    "test": "jest --detectOpenHandles --forceExit"
+    "test": "env-cmd -f ./src/backend/config/.test.env jest --detectOpenHandles --forceExit"
   },
   "jest": {
     "verbose": true,

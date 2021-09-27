@@ -13,15 +13,24 @@ export class UserService implements IUserRepository {
         }
     }
 
-    async deleteUser(id: string): Promise<"Utilisateur supprimé"> {
-        return
+    async userDelete(id: string): Promise<"Utilisateur supprimé"> {
+        try {
+            await userModel.findByIdAndDelete(id)
+            return 'Utilisateur supprimé'
+        } catch (e) {
+            throw new Error(e)
+        }
     }
 
     async getUser(id: string): Promise<IUser> {
-        return
+        try {
+            return await userModel.findById(id)
+        } catch (e) {
+            throw new Error(e)
+        }
     }
 
     async getUsers(): Promise<IUser[]> {
-        return
+        return await userModel.find({})
     }
 }
