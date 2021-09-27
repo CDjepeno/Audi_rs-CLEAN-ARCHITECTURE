@@ -3,7 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const config_1 = __importDefault(require("./config/config"));
 const app_1 = __importDefault(require("./app"));
 const PORT = process.env.SERVER_PORT || 8000;
-app_1.default.listen(PORT, () => console.log(`Serveur running ${config_1.default.server.port}`));
+app_1.default.listen(PORT, () => console.log(`Serveur running ${PORT}`));
