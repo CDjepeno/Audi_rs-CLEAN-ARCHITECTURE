@@ -16,7 +16,8 @@ exports.connectDb = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 function connectDb(mongoUri) {
     return __awaiter(this, void 0, void 0, function* () {
-        return yield mongoose_1.default.connect(mongoUri).then(() => console.log('connected to database'));
+        return yield mongoose_1.default.connect(mongoUri)
+            .then(() => console.log(`connected to database name ${process.env.DB_NAME} `));
     });
 }
 exports.connectDb = connectDb;

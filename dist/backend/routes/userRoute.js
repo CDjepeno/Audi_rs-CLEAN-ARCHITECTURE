@@ -7,4 +7,7 @@ const express_1 = __importDefault(require("express"));
 const UserController_1 = require("../controllers/UserController");
 const router = express_1.default.Router();
 router.post("/api/user", UserController_1.createUser);
+router.delete("/api/user/:id", UserController_1.deleteUser);
+router.get("/api/user/:id", UserController_1.getUser);
+router.get("/api/users", UserController_1.getUsers);
 exports.default = router;

@@ -26,19 +26,30 @@ class UserService {
             }
         });
     }
-    deleteUser(id) {
+    userDelete(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return;
+            try {
+                yield userModel_1.default.findByIdAndDelete(id);
+                return 'Utilisateur supprimé';
+            }
+            catch (e) {
+                throw new Error(e);
+            }
         });
     }
     getUser(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return;
+            try {
+                return yield userModel_1.default.findById(id);
+            }
+            catch (e) {
+                throw new Error(e);
+            }
         });
     }
     getUsers() {
         return __awaiter(this, void 0, void 0, function* () {
-            return;
+            return yield userModel_1.default.find({});
         });
     }
 }

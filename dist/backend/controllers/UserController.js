@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUser = void 0;
+exports.getUsers = exports.getUser = exports.deleteUser = exports.createUser = void 0;
 const userService_1 = require("../services/userService");
 const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -23,12 +23,37 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.createUser = createUser;
-// deleteUser(id: string): Promise<"Utilisateur supprimé"> {
-//     return
-// }
-// getUser(id: string): Promise<IUser> {
-//     return
-// }
-// getUsers(): Promise<IUser[]> {
-//     return
-// }
+const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const userService = new userService_1.UserService();
+        yield userService.userDelete(req.params.id);
+        res.json('Utilisateur supprimé');
+    }
+    catch (e) {
+        throw new Error(e);
+    }
+});
+exports.deleteUser = deleteUser;
+const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const userService = new userService_1.UserService();
+        const user = yield userService.getUser(req.params.id);
+        res.json(user);
+    }
+    catch (e) {
+        throw new Error(e);
+    }
+});
+exports.getUser = getUser;
+const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const userService = new userService_1.UserService();
+        const users = yield userService.getUsers();
+        res.json(users);
+        return users;
+    }
+    catch (e) {
+        throw new Error(e);
+    }
+});
+exports.getUsers = getUsers;
