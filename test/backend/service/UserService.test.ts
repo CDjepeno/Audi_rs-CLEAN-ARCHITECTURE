@@ -1,5 +1,5 @@
 // @ts-ignore
-import {UserRepositoryBuilder} from "../../builder/UserRepositoryBuilder";
+import {UserRepositoryBuilder, UserType} from "../../builder/UserRepositoryBuilder";
 import { UserService } from "../../../src/backend/services/userService";
 import {connectDb} from "../../../src/backend/database/mongodb";
 import dotenv from 'dotenv'
@@ -9,16 +9,16 @@ import util from 'util'
 
 new util.TextEncoder()
 
-dotenv.config()
 
 jest.setTimeout(60000)
 describe('Test UserService module', () => {
     let mongoClient;
     let id;
     beforeAll(async () => {
-        mongoClient = await connectDb(process.env.MONGO_URI)
+        dotenv.config({ path: 'src/backend/config/.test.env' })
+        console.log( process.env.MONGO_URI_TEST)
+        mongoClient = await connectDb(process.env.MONGO_URI_TEST)
         const newUser = await UserModel.create(UserRepositoryBuilder.userStub());
-
         id = newUser._id;
     })
 
@@ -35,7 +35,9 @@ describe('Test UserService module', () => {
         const result = await userService.getUser(id)
         console.log(result)
 
-        expect(result).toBeInstanceOf(User)
+        expect(result.id).toBeDefined()
     })
+
+
     // afterAll(async() => await mongoose.connection.db.dropCollection("users"))
 })

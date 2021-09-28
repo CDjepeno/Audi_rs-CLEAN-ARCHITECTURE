@@ -8,10 +8,10 @@
   "description": "Projet MERN Hexagonal architecture",
   "main": "app.js",
   "scripts": {
-    "start": "node dist/backend/server.js",
-    "dev": "env-cmd -f ./src/backend/config/.dev.env nodemon src/backend/server.ts",
+    "start": "cross-env node dist/backend/server.js",
+    "dev": "cross-env NODE_ENV=dev nodemon src/backend/server.ts",
     "build": "tsc -p .",
-    "test": "env-cmd -f ./src/backend/config/.test.env jest --detectOpenHandles --forceExit"
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit"
   },
   "jest": {
     "verbose": true,
@@ -58,7 +58,7 @@
     "babel-core": "^6.26.3",
     "babel-jest": "^27.2.1",
     "babel-preset-env": "^1.7.0",
-    "dotenv": "^10.0.0",
+    "cross-env": "^7.0.3",
     "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "mongodb": "^4.1.2",
