@@ -16,7 +16,6 @@ describe('Test UserService module', () => {
     let id;
     beforeAll(async () => {
         dotenv.config({ path: 'src/backend/config/.test.env' })
-        console.log( process.env.MONGO_URI_TEST)
         mongoClient = await connectDb(process.env.MONGO_URI_TEST)
         const newUser = await UserModel.create(UserRepositoryBuilder.userStub());
         id = newUser._id;
@@ -30,11 +29,9 @@ describe('Test UserService module', () => {
         expect(result).toBe('Utilisateur ajouté')
     })
 
-    it.only('getUser Test', async() => {
+    it('getUser Test', async() => {
         const userService = new UserService()
         const result = await userService.getUser(id)
-        console.log(result)
-
         expect(result.id).toBeDefined()
     })
 
