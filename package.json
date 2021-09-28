@@ -17,7 +17,7 @@
     "start": "cross-env node dist/backend/server.js",
     "dev": "cross-env NODE_ENV=dev nodemon src/backend/server.ts",
     "build": "tsc -p .",
-    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit"
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit --verbose"
   },
   "repository": {
     "type": "git",
