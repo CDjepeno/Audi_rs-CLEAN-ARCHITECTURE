@@ -35,6 +35,13 @@ describe('Test UserService module', () => {
         expect(result.id).toBeDefined()
     })
 
+    it.only('getUsers Test', async() => {
+        const userService = new UserService()
+        await userService.getUsers().then(res => {
+            expect.arrayContaining([expect.objectContaining(res)])
+        })
+    })
+
 
     // afterAll(async() => await mongoose.connection.db.dropCollection("users"))
 })
