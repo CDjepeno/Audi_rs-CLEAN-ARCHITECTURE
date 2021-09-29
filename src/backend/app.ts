@@ -3,11 +3,6 @@ import router from "./routes/userRoute";
 import {connectDb} from "./database/mongodb";
 import * as dotenv from 'dotenv'
 
-
-
-console.log(process.env.NODE_ENV)
-
-
 const app: express.Application = express()
 
 app
@@ -21,6 +16,10 @@ if(process.env.NODE_ENV === "dev") {
 if(process.env.NODE_ENV === "test") {
     dotenv.config({ path: __dirname+'/config/.test.env' })
     connectDb(process.env.MONGO_URI_TEST)
+}
+if(process.env.NODE_ENV === "production") {
+    dotenv.config()
+    connectDb(process.env.MONGO_URI)
 }
 
 app.get('/', (req , res) => {
