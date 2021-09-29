@@ -35,11 +35,17 @@ describe('Test UserService module', () => {
         expect(result.id).toBeDefined()
     })
 
-    it.only('getUsers Test', async() => {
+    it('getUsers Test', async() => {
         const userService = new UserService()
         await userService.getUsers().then(res => {
             expect.arrayContaining([expect.objectContaining(res)])
         })
+    })
+
+    it.only('deleteUser Test', async() => {
+        const userService = new UserService()
+        const response = await userService.userDelete(id)
+        expect(response).toBe('Utilisateur supprimé')
     })
 
 
