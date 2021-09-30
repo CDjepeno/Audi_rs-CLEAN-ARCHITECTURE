@@ -4,8 +4,8 @@ import { UserService } from "../../../src/backend/services/userService";
 import {connectDb} from "../../../src/backend/database/mongodb";
 import dotenv from 'dotenv'
 import UserModel from "../../../src/backend/models/userModel";
-import {User} from "../../../src/Core domain/online store/Entities/VO/User";
 import util from 'util'
+import mongoose from "mongoose";
 
 new util.TextEncoder()
 
