@@ -13,7 +13,7 @@ export class CarRepositoryBuilder {
             km: 1150,
             price: 50000,
             image: 'Audi_rs6.png',
-            owner: ownerCar,
+            owner: ownerCar.id,
             available: true
         }
     }
@@ -29,7 +29,7 @@ export class CarRepositoryBuilder {
                 km: 1150,
                 price: 50000,
                 image: 'Audi_rs6.png',
-                owner: ownerCar1,
+                owner: ownerCar1.id,
                 available: true
             },
             {
@@ -38,7 +38,7 @@ export class CarRepositoryBuilder {
                 km: 1150,
                 price: 80000,
                 image: 'Audi_rs7.png',
-                owner: ownerCar2,
+                owner: ownerCar2.id,
                 available: true
             },
             {
@@ -47,7 +47,7 @@ export class CarRepositoryBuilder {
                 km: 1150,
                 price: 80000,
                 image: 'Audi_rsq3.png',
-                owner: ownerCar3,
+                owner: ownerCar3.id,
                 available: true
             }
         ]

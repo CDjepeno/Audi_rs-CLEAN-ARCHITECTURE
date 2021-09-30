@@ -14,11 +14,11 @@ const CarSchema = new mongoose.Schema({
     km: {type: Number, require: true},
     price: {type: Number, require: true},
     image: {type: String, require: true},
-    owner: {type: mongoose.Schema.Types.ObjectId, ref: 'user'},
+    owner: {type: String},
     available: {type: Boolean, require: true}
 })
 
-const UserModel = mongoose.model<CarDocument>("User", CarSchema);
+const CarModel = mongoose.model<CarDocument>("Car", CarSchema);
 
-export default UserModel;
+export default CarModel;
 

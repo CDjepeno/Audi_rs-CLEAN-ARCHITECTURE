@@ -5,8 +5,6 @@ import {connectDb} from "../../../src/backend/database/mongodb";
 import dotenv from 'dotenv'
 import UserModel from "../../../src/backend/models/userModel";
 import util from 'util'
-import mongoose from "mongoose";
-
 new util.TextEncoder()
 
 
@@ -21,7 +19,7 @@ describe('Test UserService module', () => {
         id = newUser._id;
     })
 
-    it('createUser Test', async() => {
+    it('createUser Test should be return "Utilisateur ajouté"', async() => {
         const user = UserRepositoryBuilder.userStub()
         const userService = new UserService()
         const result = await userService.addUser(user)
@@ -29,20 +27,20 @@ describe('Test UserService module', () => {
         expect(result).toBe('Utilisateur ajouté')
     })
 
-    it('getUser Test', async() => {
+    it('getUser Test should be defined', async() => {
         const userService = new UserService()
         const result = await userService.getUser(id)
         expect(result.id).toBeDefined()
     })
 
-    it('getUsers Test', async() => {
+    it('getUsers Test should be return a array', async() => {
         const userService = new UserService()
         await userService.getUsers().then(res => {
             expect.arrayContaining([expect.objectContaining(res)])
         })
     })
 
-    it.only('deleteUser Test', async() => {
+    it('deleteUser Test', async() => {
         const userService = new UserService()
         const response = await userService.userDelete(id)
         expect(response).toBe('Utilisateur supprimé')

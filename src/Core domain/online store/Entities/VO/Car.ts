@@ -7,7 +7,7 @@ export interface ICar {
     km: number,
     price: number,
     image: string,
-    owner: IUser,
+    owner: string,
     available: boolean
 }
 
@@ -19,7 +19,7 @@ export class Car implements ICar{
         readonly km: number,
         readonly price: number,
         readonly image: string,
-        readonly owner: IUser)
+        readonly owner: string)
     {
         this.id = Utils.generateUniqueId()
         this.available = true

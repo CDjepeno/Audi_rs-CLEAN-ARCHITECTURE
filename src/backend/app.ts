@@ -14,6 +14,7 @@ if(process.env.NODE_ENV === "dev") {
     connectDb(process.env.MONGO_URI)
 }
 if(process.env.NODE_ENV === "test") {
+    console.log('ok yes')
     dotenv.config({ path: __dirname+'/config/.test.env' })
     connectDb(process.env.MONGO_URI_TEST)
 }
