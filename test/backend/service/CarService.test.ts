@@ -22,11 +22,16 @@ describe('Test CarService', () => {
 
         expect(result).toBe('Véhicule ajouté')
     })
-
-    it.only('Get a Car test should be return "Véhicule ajouté"', async() => {
+    it('Get a Car test should be return "Véhicule ajouté"', async() => {
         const car = CarRepositoryBuilder.carStub()
         const carService = new CarService()
         const result = await carService.addCar(car)
+
+        expect(result).toBe('Véhicule ajouté')
+    })
+    it.only('Get a Cars test should be return array of car', async() => {
+        const carService = new CarService()
+        const result = await carService.getCars()
 
         expect(result).toBe('Véhicule ajouté')
     })

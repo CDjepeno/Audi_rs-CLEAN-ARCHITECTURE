@@ -35,6 +35,7 @@ if (process.env.NODE_ENV === "dev") {
     mongodb_1.connectDb(process.env.MONGO_URI);
 }
 if (process.env.NODE_ENV === "test") {
+    console.log('ok yes');
     dotenv.config({ path: __dirname + '/config/.test.env' });
     mongodb_1.connectDb(process.env.MONGO_URI_TEST);
 }

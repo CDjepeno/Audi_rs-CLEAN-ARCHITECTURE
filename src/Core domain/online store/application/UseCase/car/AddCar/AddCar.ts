@@ -11,7 +11,7 @@ export class AddCar {
     async execute(request: AddCarRequest, presenter: AddCarPresenter) {
         const response = new AddCarResponse();
         const user = new User(request.owner.firstName, request.owner.lastName,request.owner.address,request.owner.email,request.owner.password, )
-        const car = new Car(request.name, request.km, request.price, request.image, user)
+        const car = new Car(request.name, request.km, request.price, request.image, user.id)
         await this.repository.addCar(car)
         response.car = car
 
