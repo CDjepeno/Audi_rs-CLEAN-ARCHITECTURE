@@ -1,14 +1,18 @@
 import {ICar} from "../../src/Core domain/online store/Entities/VO/Car";
 // @ts-ignore
 import {UserRepositoryBuilder} from "./UserRepositoryBuilder";
-import {Utils} from "../../src/Core domain/common/Utils";
+import UserModel from "../../src/backend/models/userModel";
+
 
 export class CarRepositoryBuilder {
 
     static carStub(): ICar{
         const ownerCar= UserRepositoryBuilder.userStub()
+        const o = UserModel.create(UserRepositoryBuilder.userStub()).then(res => {
+
+        });
+        console.log(o)
         return {
-            id: Utils.generateUniqueId(),
             name:'Audi_rs6',
             km: 1150,
             price: 50000,
@@ -24,7 +28,6 @@ export class CarRepositoryBuilder {
         const ownerCar3= UserRepositoryBuilder.userStub()
         return [
             {
-                id: Utils.generateUniqueId(),
                 name:'Audi_rs6',
                 km: 1150,
                 price: 50000,
@@ -33,7 +36,6 @@ export class CarRepositoryBuilder {
                 available: true
             },
             {
-                id: Utils.generateUniqueId(),
                 name:'Audi_rs7',
                 km: 1150,
                 price: 80000,
@@ -42,7 +44,6 @@ export class CarRepositoryBuilder {
                 available: true
             },
             {
-                id: Utils.generateUniqueId(),
                 name:'Audi_RSQ3',
                 km: 1150,
                 price: 80000,
@@ -52,7 +53,4 @@ export class CarRepositoryBuilder {
             }
         ]
     }
-
-
-
 }

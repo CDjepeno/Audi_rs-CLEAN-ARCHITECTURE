@@ -5,7 +5,8 @@ import CarModel from "../models/carModel";
 export class CarService implements ICarRepository {
     async addCar(car: ICar): Promise<"Véhicule ajouté"> {
         try {
-            await CarModel.create(car)
+            const result = await CarModel.create(car)
+            console.log(result)
             return "Véhicule ajouté"
         } catch (e) {
             throw new Error(e)
@@ -13,9 +14,14 @@ export class CarService implements ICarRepository {
     }
 
     async getCars(): Promise<ICar[]> {
-        return await CarModel.find({})
+        try {
+            return await CarModel.find({})
+        } catch (e) {
+            throw new Error(e)
+        }
     }
 
+    // @ts-ignore
     async getCar(id: string): Promise<ICar> {
         try {
             return await CarModel.findById(id)

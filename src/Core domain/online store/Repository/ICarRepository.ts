@@ -1,11 +1,14 @@
+import CarModel from "../../../backend/models/carModel";
 import {ICar} from "../Entities/VO/Car";
 
 export interface ICarRepository {
-    getCars(): Promise<ICar[]>
+    // @ts-ignore
+    getCars(): Promise<CarModel[]>
 
     addCar(car: ICar): Promise<"Véhicule ajouté">
 
     deleteCar(id: string): Promise<"Véhicule supprimé">
 
-    getCar(id: string): Promise<ICar>
+    // @ts-ignore
+    getCar(id: string): Promise<CarModel>
 }
