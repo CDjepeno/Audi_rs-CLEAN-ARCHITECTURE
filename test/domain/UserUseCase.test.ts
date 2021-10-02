@@ -29,7 +29,7 @@ describe('InMemoryUserRepository Test', () => {
         const user = UserRepositoryBuilder.userStub()
         const userStub = new InMemoryUserRepository()
         userStub.addUser(user)
-        const result = userStub.deleteUser(user.id)
+        const result = userStub.userDelete(user.id)
         expect(result).resolves.toEqual('Utilisateur supprimé')
     })
 })
