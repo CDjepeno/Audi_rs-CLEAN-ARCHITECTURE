@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import bcrypt from 'bcrypt'
 
 export interface IUserDocument extends mongoose.Document {
     firstName: string;
@@ -14,6 +15,16 @@ const UserSchema = new mongoose.Schema({
     address: {type: String, require: true},
     email: {type: String, require: true},
     password: {type: String, require: true}
+})
+
+UserSchema.pre('save', async function(next) {
+    const user = this
+
+    const hash = await bcrypt.hash(user.password, 10)
+
+    user.password = hash
+
+    next()
 })
 
 const UserModel = mongoose.model<IUserDocument>("User", UserSchema);
