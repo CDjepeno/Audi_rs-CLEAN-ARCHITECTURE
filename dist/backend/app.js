@@ -23,13 +23,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const userRoute_1 = __importDefault(require("./routes/userRoute"));
 const mongodb_1 = require("./database/mongodb");
 const dotenv = __importStar(require("dotenv"));
+const userRoute_1 = __importDefault(require("./routes/userRoute"));
+const carRoute_1 = __importDefault(require("./routes/carRoute"));
 const app = express_1.default();
 app
     .use(express_1.default.json())
-    .use(userRoute_1.default);
+    .use(userRoute_1.default)
+    .use(carRoute_1.default);
 if (process.env.NODE_ENV === "dev") {
     dotenv.config({ path: __dirname + '/config/.dev.env' });
     mongodb_1.connectDb(process.env.MONGO_URI);

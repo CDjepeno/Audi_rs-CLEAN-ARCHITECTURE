@@ -13,8 +13,8 @@ exports.getUsers = exports.getUser = exports.deleteUser = exports.createUser = v
 const userService_1 = require("../services/userService");
 const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const user = req.body;
         const userService = new userService_1.UserService();
+        const user = req.body;
         yield userService.addUser(user);
         res.json('Utilisateur ajouter');
     }

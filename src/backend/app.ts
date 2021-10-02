@@ -1,13 +1,15 @@
 import express from 'express'
-import router from "./routes/userRoute";
 import {connectDb} from "./database/mongodb";
 import * as dotenv from 'dotenv'
+import UserRoutes from "./routes/userRoute";
+import CarRoutes from "./routes/carRoute";
 
 const app: express.Application = express()
 
 app
     .use(express.json())
-    .use(router)
+    .use(UserRoutes)
+    .use(CarRoutes)
 
 if(process.env.NODE_ENV === "dev") {
     dotenv.config({ path: __dirname+'/config/.dev.env' })

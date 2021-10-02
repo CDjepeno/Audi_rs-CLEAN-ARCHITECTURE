@@ -5,8 +5,8 @@ import { Request, Response } from "express";
 
 export const createUser = async (req: Request, res: Response) => {
         try {
-            const user: IUser = req.body
             const userService = new UserService()
+            const user: IUser = req.body
             await userService.addUser(user)
             res.json('Utilisateur ajouter')
         } catch (e) {
