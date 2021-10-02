@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 export interface IUserDocument extends mongoose.Document {
     firstName: string;
@@ -26,6 +27,20 @@ UserSchema.pre('save', async function(next) {
 
     next()
 })
+
+export const PasswordVerify = (user, password, res) => {
+    bcrypt
+        .compare(password, user.password)
+        .then(isPasswordValid => {
+            if(!isPasswordValid) {
+                const message = "Votre mot de passe n'est pas valide"
+                return res.status(404).json({ message })
+            }
+            const token = jwt.sign({userid: user._id}, process.env.TOKEN_SECRET, {expiresIn: '24h'})
+            const message = "Connecté"
+            return res.json({message, token, user})
+        })
+}
 
 const UserModel = mongoose.model<IUserDocument>("User", UserSchema);
 
