@@ -1,10 +1,12 @@
 import express from 'express'
-import {createUser, deleteUser, getUser, getUsers} from "../controllers/UserController";
+import {register, deleteUser, getUser, getUsers, login} from "../controllers/UserController";
+import {auth} from "../controllers/auth/auth";
 
 const UserRoutes = express.Router();
 
-UserRoutes.post("/api/user", createUser)
-UserRoutes.delete("/api/user/:id", deleteUser)
+UserRoutes.post("/api/register", register)
+UserRoutes.post("/api/login", login)
+UserRoutes.delete("/api/user/:id", auth, deleteUser)
 UserRoutes.get("/api/user/:id", getUser)
 UserRoutes.get("/api/users", getUsers)
 
