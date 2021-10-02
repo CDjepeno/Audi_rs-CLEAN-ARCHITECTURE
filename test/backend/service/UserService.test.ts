@@ -15,8 +15,10 @@ describe('Test UserService module', () => {
     beforeAll(async () => {
         dotenv.config({ path: 'src/backend/config/.test.env' })
         mongoClient = await connectDb(process.env.MONGO_URI_TEST)
-        const newUser = await UserModel.create(UserRepositoryBuilder.userStub());
-        id = newUser._id;
+
+        await UserModel.insertMany(UserRepositoryBuilder.usersStub()).then(newUsers => {
+            id = newUsers[0]._id;
+        }).then()
     })
 
     it('createUser Test should be return "Utilisateur ajouté"', async() => {

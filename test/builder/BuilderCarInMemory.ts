@@ -1,29 +1,34 @@
 import {ICar} from "../../src/Core domain/online store/Entities/VO/Car";
 // @ts-ignore
 import {UserRepositoryBuilder} from "./UserRepositoryBuilder";
+import UserModel from "../../src/backend/models/userModel";
 
 
-export class CarRepositoryBuilder {
+export class BuilderCarInMemory {
 
-    static carStub(ownerCar): ICar{
+    static carStub(): ICar{
+        const ownerCar= UserRepositoryBuilder.userStub()
         return {
             name:'Audi_rs6',
             km: 1150,
             price: 50000,
             image: 'Audi_rs6.png',
-            owner: ownerCar,
+            owner: ownerCar.id,
             available: true
         }
     }
 
-    static carsStub(ownerCar): ICar[] {
+    static carsStub(): ICar[] {
+        const ownerCar1= UserRepositoryBuilder.userStub()
+        const ownerCar2= UserRepositoryBuilder.userStub()
+        const ownerCar3= UserRepositoryBuilder.userStub()
         return [
             {
                 name:'Audi_rs6',
                 km: 1150,
                 price: 50000,
                 image: 'Audi_rs6.png',
-                owner: ownerCar,
+                owner: ownerCar1.id,
                 available: true
             },
             {
@@ -31,7 +36,7 @@ export class CarRepositoryBuilder {
                 km: 1150,
                 price: 80000,
                 image: 'Audi_rs7.png',
-                owner: ownerCar,
+                owner: ownerCar2.id,
                 available: true
             },
             {
@@ -39,7 +44,7 @@ export class CarRepositoryBuilder {
                 km: 1150,
                 price: 80000,
                 image: 'Audi_rsq3.png',
-                owner: ownerCar,
+                owner: ownerCar3.id,
                 available: true
             }
         ]

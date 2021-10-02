@@ -3,6 +3,7 @@ import {InMemoryUserRepository} from "../builder/InMemoryUserRepository";
 // @ts-ignore
 import {UserRepositoryBuilder} from "../builder/UserRepositoryBuilder";
 
+jest.setTimeout(60000)
 describe('InMemoryUserRepository Test', () => {
     it('Should register a new user', () => {
         const user = UserRepositoryBuilder.userStub()

@@ -5,8 +5,7 @@ import CarModel from "../models/carModel";
 export class CarService implements ICarRepository {
     async addCar(car: ICar): Promise<"Véhicule ajouté"> {
         try {
-            const result = await CarModel.create(car)
-            console.log(result)
+            await CarModel.create(car)
             return "Véhicule ajouté"
         } catch (e) {
             throw new Error(e)

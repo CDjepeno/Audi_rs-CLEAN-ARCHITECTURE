@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import UserModel from "./userModel";
 const Schema = mongoose.Schema
 export interface ICarDocument extends mongoose.Document {
     name: string,
@@ -14,7 +15,7 @@ const CarSchema = new Schema({
     km: {type: Number, require: true},
     price: {type: Number, require: true},
     image: {type: String, require: true},
-    owner: {type: Schema.Types.ObjectId, ref: 'user'},
+    owner: {type: Schema.Types.ObjectId, ref: UserModel},
     available: {type: Boolean, require: true}
 })
 

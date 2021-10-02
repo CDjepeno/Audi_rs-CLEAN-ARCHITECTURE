@@ -35,7 +35,7 @@ export class InMemoryUserRepository implements IUserRepository{
         return Promise.resolve(this.users.get(id))
     }
 
-    async deleteUser(id: string): Promise<"Utilisateur supprimé"> {
+    async userDelete(id: string): Promise<"Utilisateur supprimé"> {
             if(this.users.get(id)) {
                 this.users.delete(id)
                 return Promise.resolve("Utilisateur supprimé")

@@ -2,6 +2,8 @@ import {ICarRepository} from "../../src/Core domain/online store/Repository/ICar
 import {ICar} from "../../src/Core domain/online store/Entities/VO/Car";
 // @ts-ignore
 import {CarRepositoryBuilder} from "./CarRepositoryBuilder";
+// @ts-ignore
+import {BuilderCarInMemory} from "./BuilderCarInMemory";
 
 export class InMemoryCarRepository implements ICarRepository{
     private cars: Map<string, ICar>
@@ -26,7 +28,7 @@ export class InMemoryCarRepository implements ICarRepository{
     }
 
     async getCars():Promise<ICar[]> {
-        const result = CarRepositoryBuilder.carsStub()
+        const result = BuilderCarInMemory.carsStub()
         return Promise.resolve(result)
     }
 

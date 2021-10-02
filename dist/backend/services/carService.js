@@ -28,9 +28,15 @@ class CarService {
     }
     getCars() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield carModel_1.default.find({});
+            try {
+                return yield carModel_1.default.find({});
+            }
+            catch (e) {
+                throw new Error(e);
+            }
         });
     }
+    // @ts-ignore
     getCar(id) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
