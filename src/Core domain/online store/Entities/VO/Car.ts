@@ -23,4 +23,10 @@ export class Car implements ICar{
         this.id = Utils.generateUniqueId()
         this.available = true
     }
+
+    isAvailable(b: boolean) {
+        if(this.available) {
+            this.available = b
+        }
+    }
 }
