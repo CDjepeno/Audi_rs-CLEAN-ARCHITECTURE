@@ -1,4 +1,4 @@
-import {Car} from "../Entities/VO/Car";
+import {Car} from "../Entities/Car";
 import {IUser} from "../Entities/VO/User";
 
 export interface IUserRepository {

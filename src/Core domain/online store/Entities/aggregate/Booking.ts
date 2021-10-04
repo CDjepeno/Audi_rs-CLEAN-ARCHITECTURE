@@ -1,5 +1,5 @@
-import { ICar } from "./VO/Car";
-import {IUser} from "./VO/User";
+import { ICar } from "../Car";
+import {IUser} from "../VO/User";
 
 export class Booking {
     private booker: IUser

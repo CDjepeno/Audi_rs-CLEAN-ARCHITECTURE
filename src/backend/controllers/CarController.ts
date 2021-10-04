@@ -2,7 +2,7 @@ import {IUser} from "../../Core domain/online store/Entities/VO/User";
 import {UserService} from "../services/userService";
 import { Request, Response } from "express";
 import {CarService} from "../services/carService";
-import {ICar} from "../../Core domain/online store/Entities/VO/Car";
+import {ICar} from "../../Core domain/online store/Entities/Car";
 
 
 export const createCar = async (req: Request, res: Response) => {

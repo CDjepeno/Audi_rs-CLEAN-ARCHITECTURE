@@ -1,4 +1,4 @@
-import {Utils} from "../../../common/Utils";
+import {Utils} from "../../common/Utils";
 
 export interface ICar {
     id?: string,

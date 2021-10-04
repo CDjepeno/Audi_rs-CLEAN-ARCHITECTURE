@@ -1,5 +1,5 @@
 import CarModel from "../../../backend/models/carModel";
-import {ICar} from "../Entities/VO/Car";
+import {ICar} from "../Entities/Car";
 
 export interface ICarRepository {
     // @ts-ignore

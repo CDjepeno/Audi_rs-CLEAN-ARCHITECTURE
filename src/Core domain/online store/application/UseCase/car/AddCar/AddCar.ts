@@ -2,7 +2,7 @@ import {ICarRepository} from "../../../../Repository/ICarRepository";
 import {AddCarRequest} from "./AddCarRequest";
 import {AddCarPresenter} from "./AddCarPresenter";
 import {AddCarResponse} from "./AddCarResponse";
-import {Car} from "../../../../Entities/VO/Car";
+import {Car} from "../../../../Entities/Car";
 import {User} from "../../../../Entities/VO/User";
 
 export class AddCar {
