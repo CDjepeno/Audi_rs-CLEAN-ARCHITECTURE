@@ -1,5 +1,5 @@
-import {ICarRepository} from "../../src/Core domain/online store/Repository/ICarRepository";
-import {ICar} from "../../src/Core domain/online store/Entities/Car";
+import {ICarRepository} from "../../src/Core domain/online-store/Repository/ICarRepository";
+import {ICar} from "../../src/Core domain/online-store/Entities/Car";
 // @ts-ignore
 import {CarRepositoryBuilder} from "./CarRepositoryBuilder";
 // @ts-ignore
