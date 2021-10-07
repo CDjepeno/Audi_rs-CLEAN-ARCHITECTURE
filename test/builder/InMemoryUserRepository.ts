@@ -1,8 +1,8 @@
 // @ts-ignore
 import {CarRepositoryBuilder} from "./CarRepositoryBuilder";
-import {IUser} from "../../src/Core domain/online-store/Entities/VO/User";
+import {IUser} from "../../src/Core domain/car-store/Entities/VO/User";
 import {UserRepositoryBuilder} from "./UserRepositoryBuilder";
-import {IUserRepository} from "../../src/Core domain/online-store/Repository/IUserRepository";
+import {IUserRepository} from "../../src/Core domain/car-store/Repository/IUserRepository";
 
 export class InMemoryUserRepository implements IUserRepository{
     private users: Map<string, IUser>

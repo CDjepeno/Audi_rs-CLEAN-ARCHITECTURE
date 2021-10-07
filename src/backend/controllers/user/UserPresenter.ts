@@ -1,11 +1,11 @@
-import { IAddUserPresenter } from "../../../Core domain/online-store/application/UseCase/user/AddUser/IAddUserPresenter";
-import { IDeleteUserPresenter } from "../../../Core domain/online-store/application/UseCase/user/DeleteUser/IDeleteUserPresenter";
-import {IGetUserPresenter} from "../../../Core domain/online-store/application/UseCase/user/GetUser/IGetUserPresenter";
-import {AddUserResponse} from "../../../Core domain/online-store/application/UseCase/user/AddUser/AddUserResponse";
-import {DeleteUserResponse} from "../../../Core domain/online-store/application/UseCase/user/DeleteUser/DeleteUserResponse";
-import {GetUserResponse} from "../../../Core domain/online-store/application/UseCase/user/GetUser/GetUserResponse";
-import {IGetUsersPresenter} from "../../../Core domain/online-store/application/UseCase/user/GetUsers/GetUsersPresenter";
-import {GetUsersResponse} from "../../../Core domain/online-store/application/UseCase/user/GetUsers/GetUsersResponse";
+import { IAddUserPresenter } from "../../../Core domain/car-store/application/UseCase/user/AddUser/IAddUserPresenter";
+import { IDeleteUserPresenter } from "../../../Core domain/car-store/application/UseCase/user/DeleteUser/IDeleteUserPresenter";
+import {IGetUserPresenter} from "../../../Core domain/car-store/application/UseCase/user/GetUser/IGetUserPresenter";
+import {AddUserResponse} from "../../../Core domain/car-store/application/UseCase/user/AddUser/AddUserResponse";
+import {DeleteUserResponse} from "../../../Core domain/car-store/application/UseCase/user/DeleteUser/DeleteUserResponse";
+import {GetUserResponse} from "../../../Core domain/car-store/application/UseCase/user/GetUser/GetUserResponse";
+import {IGetUsersPresenter} from "../../../Core domain/car-store/application/UseCase/user/GetUsers/GetUsersPresenter";
+import {GetUsersResponse} from "../../../Core domain/car-store/application/UseCase/user/GetUsers/GetUsersResponse";
 
 export class UserPresenter implements IAddUserPresenter, IDeleteUserPresenter, IGetUserPresenter, IGetUsersPresenter {
     response: any

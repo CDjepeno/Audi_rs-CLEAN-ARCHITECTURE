@@ -31,70 +31,81 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUsers = exports.getUser = exports.deleteUser = exports.login = exports.register = void 0;
+exports.UserController = void 0;
 const userService_1 = require("../../services/userService");
 const userModel_1 = __importStar(require("../../models/userModel"));
-const index_1 = __importDefault(require("../../../Core domain/online-store/application/interactors/index"));
-const register = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const user = req.body;
-        index_1.default(user);
-        res.json('Utilisateur ajouter');
-        next();
+const index_1 = __importDefault(require("../../../Core domain/car-store/application/interactors/index"));
+class UserController {
+    register(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const user = req.body;
+                index_1.default.execute(user);
+                res.json('Utilisateur ajouter');
+                next();
+            }
+            catch (e) {
+                throw new Error(e);
+            }
+        });
     }
-    catch (e) {
-        throw new Error(e);
+    login(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { email, password } = req.body;
+            return userModel_1.default.findOne({ email })
+                .then(user => {
+                if (!user) {
+                    const message = "Utilisateur inconnu";
+                    return res.status(404).json({ message });
+                }
+                else {
+                    userModel_1.PasswordVerify(user, password, res);
+                }
+            })
+                .catch(err => res.status(500).send(err));
+        });
     }
-});
-exports.register = register;
-const login = (req, res, next) => {
-    const { email, password } = req.body;
-    return userModel_1.default.findOne({ email })
-        .then(user => {
-        if (!user) {
-            const message = "Utilisateur inconnu";
-            return res.status(404).json({ message });
-        }
-        else {
-            userModel_1.PasswordVerify(user, password, res);
-        }
-    })
-        .catch(err => res.status(500).send(err));
-};
-exports.login = login;
-const deleteUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const userService = new userService_1.UserService();
-        yield userService.userDelete(req.params.id);
-        res.json('Utilisateur supprimé');
-        next();
+    deleteUser(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const userService = new userService_1.UserService();
+                yield userService.userDelete(req.params.id);
+                res.json('Utilisateur supprimé');
+                next();
+            }
+            catch (e) {
+                throw new Error(e);
+            }
+        });
     }
-    catch (e) {
-        throw new Error(e);
+    getUser(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const userService = new userService_1.UserService();
+                const user = yield userService.getUser(req.params.id);
+                res.json(user);
+                next();
+            }
+            catch (e) {
+                throw new Error(e);
+            }
+        });
     }
-});
-exports.deleteUser = deleteUser;
-const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const userService = new userService_1.UserService();
-        const user = yield userService.getUser(req.params.id);
-        res.json(user);
-        next();
+    getUsers(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const userService = new userService_1.UserService();
+                const users = yield userService.getUsers();
+                res.json(users);
+                next();
+            }
+            catch (e) {
+                throw new Error(e);
+            }
+        });
     }
-    catch (e) {
-        throw new Error(e);
-    }
-});
-exports.getUser = getUser;
-const getUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const userService = new userService_1.UserService();
-        const users = yield userService.getUsers();
-        res.json(users);
-        next();
-    }
-    catch (e) {
-        throw new Error(e);
-    }
-});
-exports.getUsers = getUsers;
+}
+exports.UserController = UserController;
+//
+//
+//

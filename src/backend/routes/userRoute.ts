@@ -1,13 +1,16 @@
 import express from 'express'
-import {register, deleteUser, getUser, getUsers, login} from "../controllers/user/UserController";
+// import {register, deleteUser, getUser, getUsers, login, UserController} from "../controllers/user/UserController";
+import {UserController} from "../controllers/user/UserController";
 import {auth} from "../controllers/auth/auth";
 
 const UserRoutes = express.Router();
 
-UserRoutes.post("/api/register", register)
-UserRoutes.post("/api/login", login)
-UserRoutes.delete("/api/user/:id", auth, deleteUser)
-UserRoutes.get("/api/user/:id", getUser)
-UserRoutes.get("/api/users", getUsers)
+const userController = new UserController()
+
+UserRoutes.post("/api/register", userController.register)
+UserRoutes.post("/api/login", userController.login)
+UserRoutes.delete("/api/user/:id", auth, userController.deleteUser)
+UserRoutes.get("/api/user/:id", userController.getUser)
+UserRoutes.get("/api/users", userController.getUsers)
 
 export default UserRoutes

@@ -7,7 +7,7 @@ import {IUserRepository} from "../../../../Repository/IUserRepository";
 export class AddUser {
     constructor(private repository: IUserRepository){}
 
-    async execute(request: AddUserRequest, presenter: IAddUserPresenter) {
+    async execute(request: AddUserRequest, presenter?: IAddUserPresenter) {
         const response = new AddUserResponse();
         const user = new User(request.firstName, request.lastName,request.address,request.email,request.password)
         await this.repository.addUser(user)

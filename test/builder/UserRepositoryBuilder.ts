@@ -1,6 +1,6 @@
 // @ts-ignore
 import {Utils} from "../../src/Core domain/common/Utils";
-import {IUser} from "../../src/Core domain/online-store/Entities/VO/User";
+import {IUser} from "../../src/Core domain/car-store/Entities/VO/User";
 
 // @ts-ignore
 export class UserRepositoryBuilder {

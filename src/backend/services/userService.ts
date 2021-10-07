@@ -1,5 +1,5 @@
-import {IUser} from "../../Core domain/online-store/Entities/VO/User";
-import {IUserRepository} from "../../Core domain/online-store/Repository/IUserRepository";
+import {IUser} from "../../Core domain/car-store/Entities/VO/User";
+import {IUserRepository} from "../../Core domain/car-store/Repository/IUserRepository";
 import UserModel from "../models/userModel";
 
 

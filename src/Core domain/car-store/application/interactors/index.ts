@@ -1,9 +1,9 @@
 import {UserService} from "../../../../backend/services/userService";
 import {UserPresenter} from "../../../../backend/controllers/user/UserPresenter";
-import {addUser} from "./addUserInteractor";
+import {AddUser} from "../UseCase/user/AddUser/AddUser";
 
 
 const userRepository = new UserService()
-const presenter = new UserPresenter()
+const addUser = new AddUser(userRepository)
 
-export default addUser(userRepository, presenter)
+export default addUser
