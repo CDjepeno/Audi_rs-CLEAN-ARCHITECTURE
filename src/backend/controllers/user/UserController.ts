@@ -1,7 +1,9 @@
 import {UserService} from "../../services/userService";
 import { Request, Response } from "express";
 import UserModel, {PasswordVerify} from "../../models/userModel";
-import addUser from "../../../Core domain/car-store/application/interactors/index";
+import  {addUser,deleteUser} from "../../../Core domain/car-store/application/interactors/index";
+import {UserPresenter} from "./UserPresenter";
+import {log} from "util";
 
 
 export class UserController {
@@ -9,7 +11,7 @@ export class UserController {
     async register(req: Request, res: Response, next) {
         try {
             const user = req.body
-            addUser.execute(user)
+            await addUser.execute(user)
             res.json('Utilisateur ajouter')
             next()
         } catch (e) {
@@ -35,7 +37,9 @@ export class UserController {
     async deleteUser(req: Request, res: Response, next) {
         try {
             const userService = new UserService()
-            await userService.userDelete(req.params.id)
+            const id = req.params.id
+            const user = await userService.getUser(id)
+            await deleteUser.execute(user)
             res.json('Utilisateur supprimé')
             next()
         } catch (e) {

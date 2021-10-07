@@ -1,4 +1,4 @@
 
 export class DeleteUserResponse {
-    string?: Promise<string>
+    string?: string
 }

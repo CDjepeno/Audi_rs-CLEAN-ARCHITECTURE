@@ -1,4 +1,4 @@
-export class DeleteCarsRequest {
+export class DeleteUsersRequest {
     constructor(readonly id: string,
                 readonly name: string,
                 readonly km: number,

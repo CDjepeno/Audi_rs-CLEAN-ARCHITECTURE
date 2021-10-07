@@ -1,13 +1,12 @@
 import jwt from 'jsonwebtoken'
 
 export const auth = (req, res, next) => {
-    const authorizationHeader = req.headers.autorization;
+    const authorizationHeader = req.headers.authorization;
 
     if(!authorizationHeader) {
         const message = "Vous n'avez pas fourni de jeton d'authentification. Ajoutez-en un dans l'entête de la requete"
         res.status(401).json({ message })
     }
-
     const token = authorizationHeader.split(" ")[1];
 
     const decodedToken = jwt.verify(
