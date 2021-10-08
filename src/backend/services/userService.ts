@@ -1,7 +1,7 @@
 import {IUser} from "../../Core domain/car-store/Entities/VO/User";
 import {IUserRepository} from "../../Core domain/car-store/Repository/IUserRepository";
 import UserModel from "../models/userModel";
-import {getUserInteractor} from "../../Core domain/car-store/application/interactors";
+import {getUserInteractor} from "../../Core domain/car-store/application/interactors/user";
 
 
 export class UserService implements IUserRepository {

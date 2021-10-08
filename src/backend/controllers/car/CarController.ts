@@ -1,15 +1,13 @@
-import {IUser} from "../../../Core domain/car-store/Entities/VO/User";
-import {UserService} from "../../services/userService";
 import { Request, Response } from "express";
 import {CarService} from "../../services/carService";
 import {ICar} from "../../../Core domain/car-store/Entities/Car";
+import {addCarInteractor} from "../../../Core domain/car-store/application/interactors/car";
 
 
 export const createCar = async (req: Request, res: Response) => {
         try {
-            const carService = new CarService()
-            const car: ICar = req.body
-            await carService.addCar(car)
+            const car = req.body
+            await addCarInteractor.execute(car)
             res.json('Véhicule ajouté')
         } catch (e) {
             throw new Error(e)

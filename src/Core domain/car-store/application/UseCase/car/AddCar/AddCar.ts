@@ -8,14 +8,12 @@ import {User} from "../../../../Entities/VO/User";
 export class AddCar {
     constructor(private repository: ICarRepository){}
 
-    async execute(request: AddCarRequest, presenter: AddCarPresenter) {
+    async execute(request: AddCarRequest, presenter?: AddCarPresenter) {
         const response = new AddCarResponse();
-        const user = new User(request.owner.firstName, request.owner.lastName,request.owner.address,request.owner.email,request.owner.password, )
-        const car = new Car(request.name, request.km, request.price, request.image, user.id)
+        const car = new Car(request.name, request.km, request.price, request.image, request.owner)
         await this.repository.addCar(car)
         response.car = car
-
-        presenter.presentAddCar(response)
+        if(presenter) presenter.presentAddCar(response)
     }
 
 }

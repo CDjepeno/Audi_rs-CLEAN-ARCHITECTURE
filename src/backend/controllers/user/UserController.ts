@@ -5,7 +5,7 @@ import {
     addUserInteractor,
     deleteUserInteractor,
     getUserInteractor, getUsersInteractor
-} from "../../../Core domain/car-store/application/interactors";
+} from "../../../Core domain/car-store/application/interactors/user";
 import {UserPresenter} from "./UserPresenter";
 
 
