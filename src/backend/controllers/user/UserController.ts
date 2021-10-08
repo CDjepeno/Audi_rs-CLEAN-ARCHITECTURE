@@ -6,9 +6,6 @@ import {
     deleteUserInteractor,
     getUserInteractor, getUsersInteractor
 } from "../../../Core domain/car-store/application/interactors/user";
-import {UserPresenter} from "./UserPresenter";
-
-
 
 export class UserController {
 

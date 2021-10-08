@@ -8,10 +8,11 @@ import {Car} from "../../../../Entities/Car";
 export class GetCar {
     constructor(private repository: ICarRepository){}
 
-    async execute(request: Car, presenter: GetCarPresenter) {
+    async execute(request: string, presenter?: GetCarPresenter) {
         const response = new GetCarResponse();
-        response.car = await this.repository.getCar(request.id)
-        presenter.presentGetCar(response)
+        response.car = await this.repository.getCar(request)
+        if(presenter) presenter.presentGetCar(response)
+        return response
     }
 
 }

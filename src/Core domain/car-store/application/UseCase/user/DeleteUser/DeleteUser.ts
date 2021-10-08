@@ -10,7 +10,7 @@ export class DeleteUser {
     async execute(request: IUser, presenter?: IDeleteUserPresenter) {
         let response = new DeleteUserResponse();
         response.string = await this.repository.userDelete(request.id)
-        await presenter.presentDeleteUser(response)
+        if(presenter) await presenter.presentDeleteUser(response)
     }
 
 }
