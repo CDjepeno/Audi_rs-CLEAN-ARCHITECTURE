@@ -6,10 +6,11 @@ import {GetCarsResponse} from "./GetCarsResponse";
 export class GetCars {
     constructor(private repository: ICarRepository){}
 
-    async execute(presenter: GetCarsPresenter) {
+    async execute(presenter?: GetCarsPresenter) {
         const response = new GetCarsResponse();
         response.cars = await this.repository.getCars()
-        presenter.presentGetCars(response)
+        if(presenter) presenter.presentGetCars(response)
+        return response
     }
 
 }

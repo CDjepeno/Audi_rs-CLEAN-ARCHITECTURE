@@ -9,6 +9,6 @@ const carController = new CarController()
 CarRoutes.post("/api/car", auth, carController.createCar)
 CarRoutes.get("/api/car/:id", carController.getCar)
 CarRoutes.delete("/api/car/:id", auth, carController.deleteCar)
-// CarRoutes.get("/api/cars", getCars)
+CarRoutes.get("/api/cars", carController.getCars)
 
 export default CarRoutes

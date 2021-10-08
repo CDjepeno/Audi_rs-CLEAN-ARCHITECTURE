@@ -3,7 +3,7 @@ import {CarService} from "../../services/carService";
 import {
     addCarInteractor,
     deleteCarInteractor,
-    getCarInteractor
+    getCarInteractor, getCarsInteractor
 } from "../../../Core domain/car-store/application/interactors/car";
 
 
@@ -40,8 +40,7 @@ export class CarController {
 
     async getCars(req: Request, res: Response) {
         try {
-            const carService = new CarService()
-            const cars = await carService.getCars()
+            const cars = await getCarsInteractor.execute()
             res.json(cars)
             return cars
         } catch (e) {
