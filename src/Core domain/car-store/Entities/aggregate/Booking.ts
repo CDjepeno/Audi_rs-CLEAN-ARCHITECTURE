@@ -2,19 +2,14 @@ import { ICar } from "../Car";
 import {IUser} from "../VO/User";
 
 export class Booking {
-    private booker: IUser
-    private car: ICar
+    private booker_id: string
+    private car_id: string
     private amount: number
     private date_order: Date
 
-    constructor(c: ICar, b: IUser) {
-        this.car = c;
-        this.booker = b;
+    constructor(c: string, b: string) {
+        this.car_id = c;
+        this.booker_id = b;
     }
 
-    isBookable(user: IUser, car: ICar) {
-        if(car.available) {
-            return true
-        }
-    }
 }

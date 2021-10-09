@@ -10,7 +10,7 @@ export class GetCars {
         const response = new GetCarsResponse();
         response.cars = await this.repository.getCars()
         if(presenter) presenter.presentGetCars(response)
-        return response
+        return response;
     }
 
 }

@@ -4,8 +4,7 @@ import {
     addCarInteractor,
     deleteCarInteractor,
     getCarInteractor, getCarsInteractor
-} from "../../../Core domain/car-store/application/interactors/car";
-
+} from "../../../Core domain/car-store/application/adapters/car/carAdapter";
 
 export class CarController {
     async createCar(req: Request, res: Response) {

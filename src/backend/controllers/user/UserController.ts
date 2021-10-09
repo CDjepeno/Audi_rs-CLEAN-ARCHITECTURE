@@ -5,7 +5,7 @@ import {
     addUserInteractor,
     deleteUserInteractor,
     getUserInteractor, getUsersInteractor
-} from "../../../Core domain/car-store/application/interactors/user";
+} from "../../../Core domain/car-store/application/adapters/user/userAdapter";
 
 export class UserController {
 
@@ -71,17 +71,5 @@ export class UserController {
         }
     }
 }
-
-
-
-
-
-
-
-//
-
-//
-
-//
 
 
