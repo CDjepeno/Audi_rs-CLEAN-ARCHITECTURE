@@ -4,7 +4,6 @@ import {GetCar} from "../../UseCase/car/GetCar/GetCar";
 import {DeleteCar} from "../../UseCase/car/DeleteCar/DeleteCar";
 import {GetCars} from "../../UseCase/car/GetCars/GetCars";
 
-
 const carRepository = new CarService()
 
 const addCarInteractor = new AddCar(carRepository)

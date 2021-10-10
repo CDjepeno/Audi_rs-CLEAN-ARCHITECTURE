@@ -16,7 +16,7 @@ const CarSchema = new Schema({
     price: {type: Number, require: true},
     image: {type: String, require: true},
     owner: {type: Schema.Types.ObjectId, ref: UserModel},
-    available: {type: Boolean, require: true}
+    available: {type: Boolean, default: true}
 })
 
 const CarModel = mongoose.model<ICarDocument>("Car", CarSchema);
