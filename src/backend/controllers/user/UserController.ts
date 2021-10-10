@@ -5,7 +5,7 @@ import {
     addUserInteractor,
     deleteUserInteractor,
     getUserInteractor, getUsersInteractor
-} from "../../../Core domain/car-store/application/adapters/user/userAdapter";
+} from "../../services/adapters/user/userAdapter";
 
 export class UserController {
 
