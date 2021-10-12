@@ -1,5 +1,3 @@
-import {IUser} from "../../../../Entities/VO/User";
-
 export class AddCarRequest {
     constructor(readonly id: string,
                 readonly name: string,
