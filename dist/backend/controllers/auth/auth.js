@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.auth = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const auth = (req, res, next) => {
-    const authorizationHeader = req.headers.autorization;
+    const authorizationHeader = req.headers.authorization;
     if (!authorizationHeader) {
         const message = "Vous n'avez pas fourni de jeton d'authentification. Ajoutez-en un dans l'entête de la requete";
         res.status(401).json({ message });

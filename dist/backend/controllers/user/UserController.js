@@ -27,20 +27,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const userService_1 = require("../../services/userService");
 const userModel_1 = __importStar(require("../../models/userModel"));
-const index_1 = __importDefault(require("../../../Core domain/car-store/application/interactors/index"));
+const userAdapter_1 = require("../../services/adapters/user/userAdapter");
 class UserController {
     register(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const user = req.body;
-                index_1.default.execute(user);
+                yield userAdapter_1.addUserInteractor.execute(user);
                 res.json('Utilisateur ajouter');
                 next();
             }
@@ -49,7 +46,19 @@ class UserController {
             }
         });
     }
-    login(req, res, next) {
+    getUser(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const user = yield userAdapter_1.getUserInteractor.execute(req.params.id);
+                res.json(user);
+                next();
+            }
+            catch (e) {
+                throw new Error(e);
+            }
+        });
+    }
+    login(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { email, password } = req.body;
             return userModel_1.default.findOne({ email })
@@ -69,21 +78,10 @@ class UserController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const userService = new userService_1.UserService();
-                yield userService.userDelete(req.params.id);
+                const id = req.params.id;
+                const user = yield userService.getUser(id);
+                yield userAdapter_1.deleteUserInteractor.execute(user);
                 res.json('Utilisateur supprimé');
-                next();
-            }
-            catch (e) {
-                throw new Error(e);
-            }
-        });
-    }
-    getUser(req, res, next) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const userService = new userService_1.UserService();
-                const user = yield userService.getUser(req.params.id);
-                res.json(user);
                 next();
             }
             catch (e) {
@@ -95,7 +93,7 @@ class UserController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const userService = new userService_1.UserService();
-                const users = yield userService.getUsers();
+                const users = yield userAdapter_1.getUsersInteractor.execute();
                 res.json(users);
                 next();
             }
@@ -106,6 +104,3 @@ class UserController {
     }
 }
 exports.UserController = UserController;
-//
-//
-//

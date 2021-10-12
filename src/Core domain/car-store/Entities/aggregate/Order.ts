@@ -1,5 +1,3 @@
-import { ICar } from "../Car";
-import {IUser} from "../VO/User";
 import {Utils} from "../../../common/Utils";
 
 export interface IOrder {

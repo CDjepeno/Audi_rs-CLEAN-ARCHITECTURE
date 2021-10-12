@@ -18,8 +18,10 @@ class GetCar {
     execute(request, presenter) {
         return __awaiter(this, void 0, void 0, function* () {
             const response = new GetCarResponse_1.GetCarResponse();
-            response.car = yield this.repository.getCar(request.id);
-            presenter.presentGetCar(response);
+            response.car = yield this.repository.getCar(request);
+            if (presenter)
+                presenter.presentGetCar(response);
+            return response;
         });
     }
 }

@@ -17,8 +17,9 @@ class DeleteCar {
     execute(request, presenter) {
         return __awaiter(this, void 0, void 0, function* () {
             let response;
-            response = yield this.repository.deleteCar(request.id);
-            yield presenter.presentDeleteCar(response);
+            response = yield this.repository.deleteCar(request);
+            if (presenter)
+                yield presenter.presentDeleteCar(response);
         });
     }
 }

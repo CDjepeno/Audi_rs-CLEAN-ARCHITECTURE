@@ -12,7 +12,7 @@ const CarSchema = new Schema({
     price: { type: Number, require: true },
     image: { type: String, require: true },
     owner: { type: Schema.Types.ObjectId, ref: userModel_1.default },
-    available: { type: Boolean, require: true }
+    available: { type: Boolean, default: true }
 });
 const CarModel = mongoose_1.default.model("Car", CarSchema);
 exports.default = CarModel;

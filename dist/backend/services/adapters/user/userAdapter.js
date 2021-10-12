@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getUsersInteractor = exports.getUserInteractor = exports.deleteUserInteractor = exports.addUserInteractor = void 0;
+const userService_1 = require("../../userService");
+const AddUser_1 = require("../../../../Core domain/car-store/application/UseCase/user/AddUser/AddUser");
+const DeleteUser_1 = require("../../../../Core domain/car-store/application/UseCase/user/DeleteUser/DeleteUser");
+const GetUser_1 = require("../../../../Core domain/car-store/application/UseCase/user/GetUser/GetUser");
+const GetUsers_1 = require("../../../../Core domain/car-store/application/UseCase/user/GetUsers/GetUsers");
+const userRepository = new userService_1.UserService();
+const addUserInteractor = new AddUser_1.AddUser(userRepository);
+exports.addUserInteractor = addUserInteractor;
+const deleteUserInteractor = new DeleteUser_1.DeleteUser(userRepository);
+exports.deleteUserInteractor = deleteUserInteractor;
+const getUserInteractor = new GetUser_1.GetUser(userRepository);
+exports.getUserInteractor = getUserInteractor;
+const getUsersInteractor = new GetUsers_1.GetUsers(userRepository);
+exports.getUsersInteractor = getUsersInteractor;

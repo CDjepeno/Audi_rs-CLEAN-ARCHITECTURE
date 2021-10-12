@@ -18,8 +18,9 @@ class DeleteUser {
     execute(request, presenter) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = new DeleteUserResponse_1.DeleteUserResponse();
-            response.string = yield this.repository.deleteCar(request.id);
-            yield presenter.presentDeleteUser(response);
+            response.string = yield this.repository.userDelete(request.id);
+            if (presenter)
+                yield presenter.presentDeleteUser(response);
         });
     }
 }

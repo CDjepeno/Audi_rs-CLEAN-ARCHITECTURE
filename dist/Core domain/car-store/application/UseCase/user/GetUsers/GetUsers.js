@@ -18,8 +18,10 @@ class GetUsers {
     execute(presenter) {
         return __awaiter(this, void 0, void 0, function* () {
             const response = new GetUsersResponse_1.GetUsersResponse();
-            response.users = yield this.repository.getCars();
-            presenter.presentGetUsers(response);
+            response.users = yield this.repository.getUsers();
+            if (presenter)
+                yield presenter.presentGetUsers(response);
+            return response;
         });
     }
 }

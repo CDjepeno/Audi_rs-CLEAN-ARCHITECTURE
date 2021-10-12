@@ -9,51 +9,57 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getCars = exports.getCar = exports.deleteCar = exports.createCar = void 0;
+exports.CarController = void 0;
 const carService_1 = require("../../services/carService");
-const createCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const carService = new carService_1.CarService();
-        const car = req.body;
-        yield carService.addCar(car);
-        res.json('Véhicule ajouté');
+const carAdapter_1 = require("../../services/adapters/car/carAdapter");
+class CarController {
+    createCar(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const car = req.body;
+                yield carAdapter_1.addCarInteractor.execute(car);
+                res.json('Véhicule ajouté');
+            }
+            catch (e) {
+                throw new Error(e);
+            }
+        });
     }
-    catch (e) {
-        throw new Error(e);
+    deleteCar(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const carService = new carService_1.CarService();
+                yield carAdapter_1.deleteCarInteractor.execute(req.params.id);
+                yield carService.deleteCar(req.params.id);
+                res.json('Véhicule supprimé');
+            }
+            catch (e) {
+                throw new Error(e);
+            }
+        });
     }
-});
-exports.createCar = createCar;
-const deleteCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const carService = new carService_1.CarService();
-        yield carService.deleteCar(req.params.id);
-        res.json('Véhicule supprimé');
+    getCar(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const user = yield carAdapter_1.getCarInteractor.execute(req.params.id);
+                res.json(user);
+            }
+            catch (e) {
+                throw new Error(e);
+            }
+        });
     }
-    catch (e) {
-        throw new Error(e);
+    getCars(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const cars = yield carAdapter_1.getCarsInteractor.execute();
+                res.json(cars);
+                return cars;
+            }
+            catch (e) {
+                throw new Error(e);
+            }
+        });
     }
-});
-exports.deleteCar = deleteCar;
-const getCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const carService = new carService_1.CarService();
-        const user = yield carService.getCar(req.params.id);
-        res.json(user);
-    }
-    catch (e) {
-        throw new Error(e);
-    }
-});
-exports.getCar = getCar;
-const getCars = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const carService = new carService_1.CarService();
-        const cars = yield carService.getCars();
-        res.json(cars);
-        return cars;
-    }
-    catch (e) {
-        throw new Error(e);
-    }
-});
-exports.getCars = getCars;
+}
+exports.CarController = CarController;

@@ -19,7 +19,9 @@ class GetCars {
         return __awaiter(this, void 0, void 0, function* () {
             const response = new GetCarsResponse_1.GetCarsResponse();
             response.cars = yield this.repository.getCars();
-            presenter.presentGetCars(response);
+            if (presenter)
+                presenter.presentGetCars(response);
+            return response;
         });
     }
 }

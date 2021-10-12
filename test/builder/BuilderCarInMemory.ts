@@ -1,8 +1,6 @@
 import {ICar} from "../../src/Core domain/car-store/Entities/Car";
 // @ts-ignore
 import {UserRepositoryBuilder} from "./UserRepositoryBuilder";
-import UserModel from "../../src/backend/models/userModel";
-
 
 export class BuilderCarInMemory {
 
