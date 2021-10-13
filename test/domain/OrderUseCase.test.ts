@@ -5,13 +5,13 @@ import {AddOrder} from "../../src/Core domain/car-store/application/UseCase/orde
 import {InMemoryOrderRepository} from "../builder/InMemoryOrderRepository";
 import {BuilderOrderInMemory} from "../builder/BuilderOrderInMemory";
 import {GetOrder} from "../../src/Core domain/car-store/application/UseCase/order/getOrder/GetOrder";
-import { GetOrderRequest } from "../../src/Core domain/car-store/application/UseCase/order/getOrder/GetOrderRequest";
-import {IOrder, Order} from "../../src/Core domain/car-store/Entities/aggregate/Order";
+import {GetOrders} from "../../src/Core domain/car-store/application/UseCase/order/getOrders/GetOrders";
 
 describe('Order UseCase', ()=> {
     let id;
     let orderRepository;
     let orderResult;
+    let ordersResult;
     beforeEach(async()=> {
         orderRepository = new InMemoryOrderRepository()
         const order = BuilderOrderInMemory.orderStubWhithId()
@@ -19,7 +19,9 @@ describe('Order UseCase', ()=> {
         const result = await orderRepository.getOrders()
         id = result[0][0]
         const getOrder = new GetOrder(orderRepository)
+        const getOrders = new GetOrders(orderRepository)
         orderResult = await getOrder.execute(id)
+        ordersResult = await getOrders.execute(id)
     })
     it('Should register a new Order', async()=> {
         const order = BuilderOrderInMemory.orderStub()
@@ -35,5 +37,11 @@ describe('Order UseCase', ()=> {
         const getOrder = new GetOrder(orderRepository)
         const result = await getOrder.execute(id)
         expect(result).toEqual(orderResult)
+    })
+    it('should return array of order', async() => {
+        const getOrders = new GetOrders(orderRepository)
+        // @ts-ignore
+        const result = await getOrders.execute()
+        expect(result).toEqual(ordersResult)
     })
 })
