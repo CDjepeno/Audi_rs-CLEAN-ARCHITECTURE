@@ -22,6 +22,7 @@ describe('InMemoryUserRepository Test', () => {
         const userStub = new InMemoryUserRepository()
         const users = UserRepositoryBuilder.usersStub()
         userStub.addUsers(users)
+
         const result = userStub.getUsers()
         expect(result).resolves.toEqual(users)
     })

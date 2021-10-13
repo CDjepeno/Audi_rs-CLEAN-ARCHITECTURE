@@ -2,6 +2,7 @@ import {IOrderRepository} from "../../src/Core domain/car-store/Repository/IOrde
 import {Order, IOrder} from "../../src/Core domain/car-store/Entities/aggregate/Order";
 // @ts-ignore
 import {BuilderOrderInMemory} from "./BuilderOrderInMemory";
+import {GetOrderRequest} from "../../src/Core domain/car-store/application/UseCase/order/getOrder/GetOrderRequest";
 
 export class InMemoryOrderRepository implements IOrderRepository {
         private orders: Map<string, IOrder>
@@ -25,6 +26,12 @@ export class InMemoryOrderRepository implements IOrderRepository {
 
         async getOrders(): Promise<IOrder[]> {
                 const result = BuilderOrderInMemory.ordersStub()
-                return Promise.resolve(result)
+                const res = this.orders.values()
+                let tab = []
+                for (let order of this.orders) {
+                        tab.push(order)
+                }
+                return tab
+                // return Promise.resolve(this.orders.values())
         }
 }
