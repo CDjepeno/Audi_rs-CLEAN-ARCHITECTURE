@@ -9,9 +9,9 @@ export class AddOrder {
 
     async execute(request: AddOrderRequest, presenter?: IAddOrderPresenter) {
         const response = new AddOrderResponse()
-        const order = new Order(request.user, request.car, request.amount, request.date_order )
+        const order = new Order(request.user_id, request.car_id, request.amount, request.date_order )
         await this.repository.addOrder(order)
-        response.order = order
-        return
+        response.order = "Véhicule commandé"
+        return response.order
     }
 }

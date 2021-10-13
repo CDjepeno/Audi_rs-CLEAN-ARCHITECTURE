@@ -19,7 +19,8 @@ export class InMemoryOrderRepository implements IOrderRepository {
                         this.orders.delete(order.id)
                 }
                 this.orders.set(order.id, order)
-                return Promise.resolve('Véhicule ajouté')
+                // return Promise.resolve('Véhicule ajouté')
+                return 'Véhicule ajouté'
         }
 
         async getOrders(): Promise<IOrder[]> {

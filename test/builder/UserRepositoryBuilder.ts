@@ -7,6 +7,7 @@ export class UserRepositoryBuilder {
 
     static userStub(): IUser{
         return {
+            id: Utils.generateUniqueId(),
             firstName: "Vaught",
             lastName: "Vernon",
             address: "7 rue de la paix, paris 75017",

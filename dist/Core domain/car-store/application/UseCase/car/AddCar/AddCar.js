@@ -21,7 +21,7 @@ class AddCar {
             const response = new AddCarResponse_1.AddCarResponse();
             const car = new Car_1.Car(request.name, request.km, request.price, request.image, request.owner);
             yield this.repository.addCar(car);
-            response.car = car;
+            response.car_id = car;
             if (presenter)
                 presenter.presentAddCar(response);
         });

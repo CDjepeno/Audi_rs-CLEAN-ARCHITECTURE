@@ -1,12 +1,14 @@
 import {ICar} from "../../src/Core domain/car-store/Entities/Car";
 // @ts-ignore
 import {UserRepositoryBuilder} from "./UserRepositoryBuilder";
+import {Utils} from "../../src/Core domain/common/Utils";
 
 
 export class CarRepositoryBuilder {
 
     static carStub(ownerCar): ICar{
         return {
+            id: Utils.generateUniqueId(),
             name:'Audi_rs6',
             km: 1150,
             price: 50000,

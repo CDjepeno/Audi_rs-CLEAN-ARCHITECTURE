@@ -23,7 +23,7 @@ class AddCar {
             const user = new User_1.User(request.owner.firstName, request.owner.lastName, request.owner.address, request.owner.email, request.owner.password);
             const car = new Car_1.Car(request.name, request.km, request.price, request.image, user.id);
             yield this.repository.addCar(car);
-            response.car = car;
+            response.car_id = car;
             presenter.presentAddCar(response);
         });
     }
