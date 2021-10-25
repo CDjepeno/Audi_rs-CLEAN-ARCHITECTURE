@@ -1,9 +1,9 @@
 // @ts-ignore
 import {UserRepositoryBuilder, UserType} from "../../builder/UserRepositoryBuilder";
-import { UserService } from "../../../src/backend/services/userService";
-import {connectDb} from "../../../src/backend/database/mongodb";
+import { UserService } from "../../../src/server_Express/services/userService";
+import {connectDb} from "../../../src/server_Express/database/mongodb";
 import dotenv from 'dotenv'
-import UserModel from "../../../src/backend/models/userModel";
+import UserModel from "../../../src/server_Express/models/userModel";
 import util from 'util'
 new util.TextEncoder()
 
@@ -13,7 +13,7 @@ describe('Test UserService module', () => {
     let mongoClient;
     let id;
     beforeAll(async () => {
-        dotenv.config({ path: 'src/backend/config/.test.env' })
+        dotenv.config({ path: 'src/server_Express/config/.test.env' })
         mongoClient = await connectDb(process.env.MONGO_URI_TEST)
 
         await UserModel.insertMany(UserRepositoryBuilder.usersStub()).then(newUsers => {

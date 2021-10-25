@@ -1,10 +1,10 @@
 import dotenv from "dotenv";
-import {connectDb} from "../../../src/backend/database/mongodb";
+import {connectDb} from "../../../src/server_Express/database/mongodb";
 // @ts-ignore
 import {CarRepositoryBuilder} from "../../builder/CarRepositoryBuilder";
-import {CarService} from "../../../src/backend/services/carService";
-import CarModel from "../../../src/backend/models/carModel";
-import UserModel from "../../../src/backend/models/userModel";
+import {CarService} from "../../../src/server_Express/services/carService";
+import CarModel from "../../../src/server_Express/models/carModel";
+import UserModel from "../../../src/server_Express/models/userModel";
 import {UserRepositoryBuilder} from "../../builder/UserRepositoryBuilder";
 import mongoose from "mongoose";
 
@@ -13,7 +13,7 @@ describe('Test CarService', () => {
         let mongoClient;
         let id;
     beforeAll(async () => {
-        dotenv.config({ path: 'src/backend/config/.test.env' })
+        dotenv.config({ path: 'src/server_Express/config/.test.env' })
         mongoClient = await connectDb(process.env.MONGO_URI_TEST)
         await UserModel.create(UserRepositoryBuilder.userStub()).then(newUser => {
             id = newUser._id;
