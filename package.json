@@ -54,6 +54,8 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.15.0",
+    "@nestjs/common": "^8.1.2",
+    "@nestjs/core": "^8.1.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^27.2.1",
@@ -65,6 +67,8 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.1.2",
-    "mongoose": "^6.0.6"
+    "mongoose": "^6.0.6",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.4.0"
   }
 }
