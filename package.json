@@ -15,9 +15,16 @@
   "main": "app.js",
   "scripts": {
     "start": "cross-env node dist/backend/server.js",
-    "dev": "cross-env NODE_ENV=dev nodemon src/server_Express/server.ts",
+    "dev-express": "cross-env NODE_ENV=dev nodemon src/server_Express/server.ts",
+    "dev-typeorm": "nodemon  src/infra/typeorm/index.ts",
     "build": "tsc -p .",
-    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit --verbose"
+    "test": "jest --detectOpenHandles --forceExit --verbose",
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+    "typeorm:create": "npm run typeorm migration:create -- -n",
+    "typeorm:migrate": "npm run typeorm migration:generate -- -n",
+    "typeorm:run": "npm run typeorm migration:run",
+    "typeorm:revert": "npm run typeorm migration:revert",
+    "typeorm:entity": "npm run typeorm entity:create -- -n"
   },
   "repository": {
     "type": "git",
@@ -55,8 +62,6 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.15.0",
-    "@nestjs/common": "^8.1.2",
-    "@nestjs/core": "^8.1.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^27.2.1",
@@ -67,9 +72,7 @@
     "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongodb": "^4.1.2",
-    "mongoose": "^6.0.6",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.4.0"
+    "typeorm": "^0.2.41"
   }
 }
