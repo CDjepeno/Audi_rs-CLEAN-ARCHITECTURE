@@ -1,5 +1,5 @@
-import { ICarRepository } from "../../Core domain/car-store/Repository/ICarRepository";
-import {ICar} from "../../Core domain/car-store/Entities/Car";
+import { ICarRepository } from "../../../Core domain/car-store/Repository/ICarRepository";
+import {ICar} from "../../../Core domain/car-store/Entities/Car";
 import CarModel from "../models/carModel";
 
 export class CarService implements ICarRepository {

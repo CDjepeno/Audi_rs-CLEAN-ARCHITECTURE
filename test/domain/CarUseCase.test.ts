@@ -27,8 +27,8 @@ describe('InMemoryCarRepository Test', () => {
         expect(result).resolves.toEqual(cars)
     })
     it('Should delete car ', () => {
-        const car = BuilderCarInMemory.carStub()
         const carStub = new InMemoryCarRepository()
+        const car = BuilderCarInMemory.carStub()
         carStub.addCar(car)
         const result = carStub.deleteCar(car.id)
         expect(result).resolves.toEqual('Véhicule supprimé')
