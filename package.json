@@ -12,7 +12,7 @@
     "npm": "6.x"
   },
   "description": "Projet MERN Hexagonal architecture",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "cross-env node dist/backend/server.js",
     "dev-express": "cross-env NODE_ENV=dev nodemon src/server_Express/server.ts",
@@ -72,6 +72,7 @@
     "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.41"
   }

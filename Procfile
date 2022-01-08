@@ -1,1 +1,0 @@
-web:node dist/backend/app.js

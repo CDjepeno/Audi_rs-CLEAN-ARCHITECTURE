@@ -1,0 +1,25 @@
+{
+  "type": "mysql",
+  "host": "database-1.c1gbz6ebvzt9.eu-west-1.rds.amazonaws.com",
+  "port": 3306,
+  "username": "admin",
+  "password": "Dulonx95*",
+  "database": "audi_rs",
+  "synchronize": true,
+  "logging": true,
+  "entities": [
+     "src/infra/models/**/*.ts",
+     "./build/src/entity/*.js"
+  ],
+  "migrations": [
+     "src/infra/migration/**/*.ts"
+  ],
+  "subscribers": [
+     "src/infra/subscriber/**/*.ts" 
+  ],
+  "cli": {
+     "entitiesDir": "src/infra/models",
+     "migrationsDir": "src/infra/migration",
+     "subscribersDir": "src/infra/subscriber"
+  }
+}
