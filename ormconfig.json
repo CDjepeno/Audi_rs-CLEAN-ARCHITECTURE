@@ -18,7 +18,7 @@
      "src/infra/subscriber/**/*.ts" 
   ],
   "cli": {
-     "entitiesDir": "src/infra/models",
+     "entitiesDir": "src/infra/typeorm/models",
      "migrationsDir": "src/infra/migration",
      "subscribersDir": "src/infra/subscriber"
   }

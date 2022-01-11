@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import {Entity} from "typeorm";
 import { Car } from "./Car";
 
 @Entity()
@@ -7,10 +7,10 @@ export class User {
   id: number;
 
   @Column()
-  firstName: string;
+  firstname: string;
 
   @Column()
-  lastName: string;
+  lastname: string;
 
   @Column()
   address: string;
@@ -22,4 +22,5 @@ export class User {
   password: string;
 
   @OneToMany(() => Car, (car) => car.owner, {nullable: false} )
+  cars: Car[]
 }
