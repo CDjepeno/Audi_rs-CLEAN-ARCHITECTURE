@@ -1,4 +1,4 @@
-import {Entity} from "typeorm";
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import { Car } from "./Car";
 
 @Entity()
@@ -10,7 +10,7 @@ export class User {
   firstname: string;
 
   @Column()
-  lastname: string;
+  lastnamer: string;
 
   @Column()
   address: string;

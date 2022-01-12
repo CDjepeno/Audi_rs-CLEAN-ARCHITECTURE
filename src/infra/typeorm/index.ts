@@ -1,8 +1,11 @@
 import 'reflect-metadata'
 import { createConnection } from 'typeorm'
-import express from 'express';
+import * as express from 'express';
 
-createConnection().then(async () => {
+createConnection().then(async conn => {
+
+  await conn.runMigrations()
+
   const app = express()
 
   app.listen(3000)
