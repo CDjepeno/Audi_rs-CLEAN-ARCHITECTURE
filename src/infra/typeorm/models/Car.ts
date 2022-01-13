@@ -6,16 +6,16 @@ export class Car {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column("varchar", { length: 100 })
   name: string;
 
-  @Column()
+  @Column("text")
   km: number;
 
-  @Column()
+  @Column("integer")
   price: number;
 
-  @Column()
+  @Column("varchar")
   image: string;
 
   @ManyToOne(() => User, (user) => user)
