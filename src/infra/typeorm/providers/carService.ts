@@ -21,4 +21,16 @@ export class CarProvider implements ICarRepository {
       throw new Error(err)
     }
   }
+
+  async getCars() {
+    try {
+      const cars = await getRepository(Car).find()
+
+      if(cars) {
+        return cars
+      }
+    } catch (err) {
+      
+    }
+  }
 }

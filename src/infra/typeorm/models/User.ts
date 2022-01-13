@@ -1,3 +1,4 @@
+import { IsEmail } from "class-validator";
 import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import { Car } from "./Car";
 
@@ -16,11 +17,12 @@ export class User {
   address: string;
 
   @Column()
+  @IsEmail()
   email: string;
 
   @Column()
   password: string;
 
-  @OneToMany(() => Car, (car) => car.owner, {nullable: false} )
+  @OneToMany(() => Car, (car) => car.ownerId, {nullable: false} )
   cars: Car[]
 }
