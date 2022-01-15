@@ -4,7 +4,7 @@ export class AddCarRequest {
                 readonly km: number,
                 readonly price: number,
                 readonly image: string,
-                readonly owner: string,
+                readonly owner: number,
                 readonly available: boolean
                 ){}
 }

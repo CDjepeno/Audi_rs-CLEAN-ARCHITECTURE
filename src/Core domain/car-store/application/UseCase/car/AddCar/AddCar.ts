@@ -8,11 +8,19 @@ export class AddCar {
     constructor(private repository: ICarRepository){}
 
     async execute(request: AddCarRequest, presenter?: IAddCarPresenter) {
-        const response = new AddCarResponse();
-        const car = new Car(request.name, request.km, request.price, request.image, request.owner)
-        await this.repository.addCar(car)
-        response.car = car
-        if(presenter) presenter.presentAddCar(response)
+        try {
+            const response = new AddCarResponse();
+            const car = new Car(request.name, request.km, request.price, request.image, request.owner)
+            await this.repository.addCar(car).then(res => {
+                if(res.length > 0) {
+                    return res;
+                }
+                response.car = "car added"
+                return response
+            })
+        } catch (err) {
+            throw new Error(err)
+        }
     }
 
 }
