@@ -1,6 +1,7 @@
 import 'reflect-metadata'
 import { createConnection } from 'typeorm'
 import * as express from 'express';
+import { expressApp } from './express-app';
 
 createConnection().then(async conn => {
 
@@ -8,8 +9,10 @@ createConnection().then(async conn => {
 
   const app = express()
 
-  app.listen(3000)
+  expressApp(app)
 
-  console.log("Express server has started on port 3000")
+  app.listen(5000)
+
+  console.log("Express server has started on port 5000")
 })
 .catch(err => console.log(err))

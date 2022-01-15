@@ -1,6 +1,6 @@
 import { GetCars } from "./../../../../../Core domain/car-store/application/UseCase/car/GetCars/GetCars";
 import { AddCar } from "../../../../../Core domain/car-store/application/UseCase/car/AddCar/AddCar";
-import { CarProvider } from "../../carService";
+import { CarProvider } from "../../carProvider";
 import { GetCar } from "../../../../../Core domain/car-store/application/UseCase/car/GetCar/GetCar";
 import { DeleteCar } from "../../../../../Core domain/car-store/application/UseCase/car/DeleteCar/DeleteCar";
 

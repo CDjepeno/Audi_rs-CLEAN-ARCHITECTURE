@@ -12,9 +12,9 @@ export class CarController {
     //   } else {
     //     return response.status(201).json(result)
     //   }
-    // } catch (err) {
-    //   throw new Error(err)
-    // }
+    } catch (err) {
+      throw new Error(err)
+    }
   }
 
 }

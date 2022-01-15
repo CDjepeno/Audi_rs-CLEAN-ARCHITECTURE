@@ -1,12 +1,13 @@
+import { ValidationError } from "class-validator";
 import {Car} from "../Entities/Car";
 import {IUser} from "../Entities/VO/User";
 
 export interface IUserRepository {
     getUsers(): Promise<IUser[]>
 
-    addUser(car: IUser): Promise<"Utilisateur ajouté">
+    addUser(user: IUser): Promise<string|ValidationError[]>
 
-    userDelete(id: number): Promise<"Utilisateur supprimé">
+    userDelete(id: number): Promise<string>
 
     getUser(id: number): Promise<IUser>
 }
