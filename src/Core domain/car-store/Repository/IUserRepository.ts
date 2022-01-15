@@ -6,7 +6,7 @@ export interface IUserRepository {
 
     addUser(car: IUser): Promise<"Utilisateur ajouté">
 
-    userDelete(id: any): Promise<"Utilisateur supprimé">
+    userDelete(id: number): Promise<"Utilisateur supprimé">
 
-    getUser(id: string): Promise<IUser>
+    getUser(id: number): Promise<IUser>
 }

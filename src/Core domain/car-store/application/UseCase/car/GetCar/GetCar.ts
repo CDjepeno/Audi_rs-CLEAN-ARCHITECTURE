@@ -1,16 +1,15 @@
 import {ICarRepository} from "../../../../Repository/ICarRepository";
-import {GetCarRequest} from "./GetCarRequest";
 import {GetCarPresenter} from "./GetCarPresenter";
 import {GetCarResponse} from "./GetCarResponse";
-import {Car} from "../../../../Entities/Car";
+import { GetCarRequest } from './GetCarRequest';
 
 
 export class GetCar {
     constructor(private repository: ICarRepository){}
 
-    async execute(request: string, presenter?: GetCarPresenter) {
+    async execute(getCarRequest: GetCarRequest, presenter?: GetCarPresenter) {
         const response = new GetCarResponse();
-        response.car = await this.repository.getCar(request)
+        response.car = await this.repository.getCar(getCarRequest.id)
         if(presenter) presenter.presentGetCar(response)
         return response
     }

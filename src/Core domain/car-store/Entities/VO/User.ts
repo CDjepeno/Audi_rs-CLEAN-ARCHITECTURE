@@ -1,7 +1,7 @@
 import {Utils} from "../../../common/Utils";
 
 export interface IUser {
-    id?: string,
+    id?: number,
     firstName: string,
     lastName: string,
     email: string,
@@ -10,13 +10,11 @@ export interface IUser {
 }
 
 export class User implements IUser {
-    id?: string
+    id?: number
     constructor(
         readonly firstName: string,
         readonly lastName: string,
         readonly address: string,
         readonly email: string,
-        readonly password: string){
-        this.id = Utils.generateUniqueId()
-    }
+        readonly password: string){ }
 }

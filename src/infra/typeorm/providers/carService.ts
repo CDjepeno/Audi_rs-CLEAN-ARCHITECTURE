@@ -30,7 +30,33 @@ export class CarProvider implements ICarRepository {
         return cars
       }
     } catch (err) {
-      
+      throw new Error(err)
     }
+  }
+
+  async deleteCar(idCar: number) {
+    try {
+      const deleteCar = await getRepository(Car).findOne(idCar)
+      if(deleteCar) {
+        await getRepository(Car).delete(deleteCar)
+        return 'car deleted'
+      }
+    } catch (err) {
+      throw new Error(err)
+    }
+  }
+
+  async getCar(idCar: number) {
+    try {
+      const car = await getRepository(Car).findOne(idCar)
+      if(car) {
+        return car
+      }
+      
+    } catch (error) {
+      throw new Error(error)
+    }
+
+
   }
 }

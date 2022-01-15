@@ -1,4 +1,4 @@
 export class DeleteCarRequest {
-    constructor(readonly id: string) {}
+    constructor(readonly id: number) {}
 }
 

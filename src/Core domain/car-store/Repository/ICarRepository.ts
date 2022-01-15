@@ -4,6 +4,6 @@ import {Car, ICar} from "../Entities/Car";
 export interface ICarRepository {
     addCar(car: ICar): Promise<string|ValidationError[]>
     getCars(): Promise<any>
-    deleteCar(id: string): Promise<any>
-    getCar(id: string): Promise<ICar>
+    deleteCar(idCar: number): Promise<any>
+    getCar(id: number): Promise<ICar>
 }
