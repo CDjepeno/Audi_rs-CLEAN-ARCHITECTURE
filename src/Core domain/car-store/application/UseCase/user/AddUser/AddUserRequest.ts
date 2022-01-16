@@ -1,8 +1,8 @@
 
 export class AddUserRequest {
     constructor(
-                readonly firstName: string,
-                readonly lastName: string,
+                readonly firstname: string,
+                readonly lastname: string,
                 readonly email: string,
                 readonly address: string,
                 readonly password: string,

@@ -1,4 +1,4 @@
-import { IsInt } from "class-validator";
+import { IsInt, IsString } from "class-validator";
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import { User } from "./User";
 
@@ -8,9 +8,11 @@ export class Car {
   id: number;
 
   @Column("varchar", { length: 100 })
+  @IsString()
   name: string;
 
-  @Column("text")
+  @Column("integer")
+  @IsInt()
   km: number;
 
   @Column("integer")
@@ -18,6 +20,7 @@ export class Car {
   price: number;
 
   @Column("varchar")
+  @IsString()
   image: string;
 
   @ManyToOne(() => User, (user) => user)

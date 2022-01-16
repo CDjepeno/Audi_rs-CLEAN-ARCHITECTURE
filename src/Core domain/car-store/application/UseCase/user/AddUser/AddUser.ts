@@ -7,13 +7,12 @@ import {IUserRepository} from "../../../../Repository/IUserRepository";
 export class AddUser {
     constructor(private repository: IUserRepository){}
 
-    async execute(request: AddUserRequest, presenter?: IAddUserPresenter) {
-        const response = new AddUserResponse();
-        const user = new User(request.firstName, request.lastName,request.address,request.email,request.password)
-        await this.repository.addUser(user)
-        response.user = user
-
-        presenter.presentAddUser(response)
+    async execute(request: AddUserRequest, presenter?: IAddUserPresenter):Promise<any> {
+            const response = new AddUserResponse();
+            const user = new User(request.firstname, request.lastname,request.address,request.email,request.password)
+            const res = await this.repository.addUser(user)
+            return res
     }
 
 }
+
